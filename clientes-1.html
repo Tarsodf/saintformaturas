@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clientes - Saint Formaturas e Eventos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color:  #f8c7c7; /* Cor de fundo rosa claro */
+            color: #333;
+            line-height: 1.6;
+        }
+
+        nav {
+            background-color: rgba(136, 14, 79, 0.9);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            flex-wrap: wrap;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        nav ul li {
+            display: inline-block;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #c2185b;
+        }
+
+        .header {
+            background-color: #880e4f;
+            text-align: center;
+            padding: 2rem 0;
+            color: #fff;
+        }
+
+        .header h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .gallery-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            padding: 0 2rem;
+        }
+
+        .gallery-item {
+            background-color: #f2dbdb;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.1);
+        }
+
+        .gallery-item h3 {
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.2rem;
+            color: #880e4f;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: #880e4f;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #c2185b;
+        }
+
+        /* Estilo aumentado dos ícones das redes sociais */
+        .social-icons img {
+            width: 50px; /* Aumentado para 50px */
+            height: 50px; /* Aumentado para 50px */
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Tooltip Style: Inicia oculto */
+        .social-icons a {
+            position: relative;
+            display: inline-block;
+        }
+
+        .social-icons a .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Exibe o tooltip quando o mouse passar sobre o ícone */
+        .social-icons a:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Estilos Responsivos */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li a {
+                padding: 1rem;
+                font-size: 1rem;
+            }
+
+            .header h3 {
+                font-size: 1.8rem;
+            }
+
+            .gallery-container {
+                padding: 0 1rem;
+            }
+
+            .gallery-item img {
+                height: 250px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h3 {
+                font-size: 1.6rem;
+            }
+
+            .gallery-item img {
+                height: 200px;
+            }
+
+            footer {
+                font-size: 0.9rem;
+            }
+
+            .social-icons img {
+                width: 30px;
+                height: 30px;
+            }
+        }
+        /* Link fixo no canto inferior direito */
+        .contact-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #880e4f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .contact-link:hover {
+            background-color: #c2185b;
+        }
+
+    </style>
+</head>
+<body>
+
+    <!-- Link fixo no canto inferior direito -->
+    <a href="formulario1.html" class="contact-link">Entre em Contato</a>
+
+
+    <nav>
+        <div class="logo">Saint Formaturas e Eventos</div>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
+            <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
+            <li><a href="clientes-1.html">CLIENTES</a></li>
+            <li><a href="fotoseventos-1.html">FOTOS EM EVENTOS</a></li>
+            <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h3>Nosso Portfólio de Clientes</h3>
+    </header>
+
+    <div class="gallery-container">
+        <!-- Exemplo de item de cliente -->
+        <div class="gallery-item">
+            <img src="clientes/polícia.jpg" alt="Policia Militar- Go 1">
+            <h3>Policia Militar-Go</h3>
+        </div>
+        
+        <div class="gallery-item">
+            <img src="clientes/volkswagen.jpg" alt="Volkswagen 2">
+            <h3>Volkswagen</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="clientes/mary.jpg" alt="Mary Eventos 3">
+            <h3>Mary Eventos</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="clientes/bmw.jpg" alt="bmw 4">
+            <h3>BMW</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="clientes/unifimes.jpg" alt="unifimes 5">
+            <h3>Unifimes</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="clientes/unip.jpg" alt="unip 6">
+            <h3>Unip</h3>
+        </div>
+
+        <div class="gallery-item">
+            <img src="clientes/inifan.jpg" alt="unifan 7">
+            <h3>Unifan</h3>
+        </div>
+        <!-- Adicionar mais clientes aqui -->
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/saintformaturas/" target="_blank">
+                <img src="logos das redes social/instagram.png" alt="Instagram">
+                <span class="tooltip">Instagram</span>
+            </a>
+            <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
+                <img src="logos das redes social/logo.png" alt="WhatsApp">
+                <span class="tooltip">WhatsApp</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
+                <img src="logos das redes social/facebook.png" alt="Facebook">
+                <span class="tooltip">Facebook</span>
+            </a>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área de Atuação - Saint Formaturas e Eventos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8c7c7;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        nav {
+            background-color: rgba(136, 14, 79, 0.9);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #c2185b;
+        }
+
+        header {
+            background-color: #880e4f;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            font-size: 3rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            flex: 1;
+        }
+
+        .form-container {
+            background-color: #e6bdbd;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+            margin: auto;
+            border: 2px solid #880e4f;
+        }
+
+        .form-container h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #fefefe;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        input, select, textarea {
+            padding: 1rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #880e4f;
+            outline: none;
+        }
+
+        textarea {
+            resize: vertical;
+        }
+
+        button {
+            background-color: #880e4f;
+            color: #fff;
+            padding: 1rem;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #c2185b;
+        }
+
+        footer {
+            background-color: #880e4f;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            width: 100%;
+        }
+
+        /* Estilo aumentado dos ícones das redes sociais */
+        .social-icons {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icons img {
+            width: 50px; /* Aumentado para 50px */
+            height: 50px; /* Aumentado para 50px */
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Tooltip Style: Inicia oculto */
+        .social-icons a {
+            position: relative;
+            display: inline-block;
+        }
+
+        .social-icons a .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Exibe o tooltip quando o mouse passar sobre o ícone */
+        .social-icons a:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        .image-container {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .image-container img {
+            max-width: 30%;
+            border-radius: 15px;
+        }
+
+        @media screen and (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav .logo {
+                font-size: 1.2rem;
+                text-align: center;
+            }
+
+            .form-container {
+                padding: 2rem;
+            }
+
+            input, select, textarea {
+                font-size: 1rem;
+                padding: 1rem;
+            }
+
+            button {
+                font-size: 1.2rem;
+                padding: 1.2rem;
+            }
+
+            .image-container img {
+                max-width: 60%;
+            }
+        }
+
+        /* Estilo para a primeira opção do select */
+        select {
+            padding: 1rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: border-color 0.3s ease;
+            background-color: #f8f8f8;
+            color: #333;
+        }
+
+        select:focus {
+            border-color: #880e4f;
+            outline: none;
+        }
+
+        option {
+            padding: 10px;
+        }
+
+        select option:first-child {
+            color: #888;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div class="logo">Saint Formaturas e Eventos</div>
+    <ul>
+        <li><a href="home.html">HOME</a></li>
+        <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
+        <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
+        <li><a href="clientes-1.html">CLIENTES</a></li>
+        <li><a href="fotoseventos-1.html">FOTOS EM EVENTOS</a></li>
+        <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
+    </ul>
+</nav>
+
+<header>
+    <h1>Entre em Contato</h1>
+</header>
+
+<div class="image-container">
+    <a href="Formulario/contato.jpg" target="_blank">
+        <img src="Formulario/contato.jpg" alt="contato">
+    </a>
+</div>
+
+<div class="container">
+    <div class="form-container">
+        <h2>Entre em Contato Conosco pelo Formulário: </h2>
+        <form id="contactForm" action="https://formspree.io/f/xwkgppze" method="POST" onsubmit="clearForm();">
+            <input type="text" name="nome" placeholder="Nome:" required>
+            <input type="text" name="celular" placeholder="Celular:" required>
+            <input type="email" name="_replyto" placeholder="Email:" required>
+            <input type="date" name="data_evento" placeholder="Data do Evento">
+            <input type="number" name="convidados" placeholder="Número de Convidados">
+            <select name="tipo_evento" required>
+                <option value="" disabled selected>Escolha o tipo de evento</option>
+                <option value="casamento">Casamento</option>
+                <option value="formatura">Formatura</option>
+                <option value="corporativo">Corporativo</option>
+            </select>
+            <textarea name="mensagem" rows="5" placeholder="Mensagem:" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+        <div id="successMessage" style="display:none; color: green; font-size: 1.2rem; text-align: center;">Formulário enviado com sucesso!</div>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/saintformaturas/" target="_blank">
+            <img src="logos das redes social/instagram.png" alt="Instagram">
+            <span class="tooltip">Instagram</span>
+        </a>
+        <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
+            <img src="logos das redes social/logo.png" alt="WhatsApp">
+            <span class="tooltip">WhatsApp</span>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
+            <img src="logos das redes social/facebook.png" alt="Facebook">
+            <span class="tooltip">Facebook</span>
+        </a>
+    </div>
+</footer>
+
+<script>
+    function clearForm() {
+        setTimeout(function() {
+            document.getElementById('contactForm').reset();
+            document.getElementById('successMessage').style.display = 'block';
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 5000);
+        }, 1000);
+    }
+
+    window.onbeforeunload = function() {
+        for(const form of document.getElementsByTagName('form')) {
+            form.reset();
+        }
+    };
+</script>
+
+</body>
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint Formaturas e Eventos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            background-color: #edd0d0;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+            margin: 0;
+        }
+
+        nav {
+            background-color: rgba(136, 14, 79, 0.9);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky; /* Torna o menu fixo ao rolar */
+            top: 0; /* Define a posição no topo da tela */
+            z-index: 10; /* Garante que o menu fique acima dos outros elementos */
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 1.6rem;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+        nav ul li {
+            display: inline-block;
+        }
+        nav ul li a {
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+        nav ul li a:hover {
+            background-color: #c2185b;
+        }
+        header {
+            background-color: #880e4f;
+            text-align: center;
+            padding: 2rem 0;
+            color: #fff;
+        }
+        header h1, header p {
+            color: #fff;
+        }
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+        header p {
+            font-size: 1.5rem;
+        }
+        main {
+            flex: 1;
+            padding: 2rem;
+            text-align: center;
+            background-color: #edd0d0;
+            position: relative;
+            z-index: 2;
+        }
+        main p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        footer {
+            background-color: #880e4f;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+            margin-top: 2rem;
+            width: 100%;
+        }
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+        footer a:hover {
+            color: #c2185b;
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+            nav ul li a {
+                font-size: 1rem;
+                padding: 0.5rem;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header p {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            nav .logo {
+                font-size: 1.4rem;
+            }
+            nav ul li a {
+                font-size: 0.9rem;
+            }
+            header h1 {
+                font-size: 1.8rem;
+            }
+            header p {
+                font-size: 1rem;
+            }
+            main {
+                padding: 1rem;
+            }
+        }
+
+        /* Galeria de fotos */
+        .photo-gallery {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* A imagem vai ocupar toda a altura da tela */
+            overflow: hidden;
+            margin: 2px 0;
+        }
+        .photo-gallery img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%); /* Centraliza a imagem */
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;  /* Inicialmente invisível */
+            transition: opacity 1s ease;
+        }
+
+        /* Texto sobre a imagem */
+        .intro-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(11, 9, 9, 0.6); /* Fundo de destaque */
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Estilo aumentado dos ícones das redes sociais */
+        .social-icons {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icons img {
+            width: 40px; /* Aumentado para 50px */
+            height: 40px; /* Aumentado para 50px */
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Tooltip Style: Inicia oculto */
+        .social-icons a {
+            position: relative;
+            display: inline-block;
+        }
+
+        .social-icons a .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icons a:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Link fixo no canto inferior direito */
+.contact-link {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #880e4f;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    z-index: 1000;
+}
+
+.contact-link:hover {
+    background-color: #c2185b;
+}
+    </style>
+</head>
+<body>
+    <!-- Link fixo no canto inferior direito -->
+    <a href="formulario1.html" class="contact-link">Entre em Contato</a>
+
+
+    <nav>
+        <div class="logo">Saint Formaturas e Eventos</div>
+        <ul>
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
+            <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
+            <li><a href="clientes-1.html">CLIENTES</a></li>
+            <li><a href="fotoseventos-1.html">EVENTOS EM FOTOS</a></li>
+            <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Saint Formaturas e Eventos</h1>
+        <p><strong>Experiência  em Superar Expectativas!</strong></p>
+    </header>
+
+    <main>
+        <div class="photo-gallery">
+            <img src="fotos de 5minutos/casamento11.jpeg" alt="Casamento 1">
+            <img src="Casamentos/casamento9 (1).jpeg" alt="Casamento 2">
+            <img src="fotos de 5minutos/noiva.jpeg" alt="Noiva">
+            <div class="intro-text">
+                <h2>BEM-VINDO À SAINT FORMATURAS E EVENTOS</h2>
+                A Saint Formaturas e Eventos é uma empresa referência na organização de eventos exclusivos, com uma especialização em formaturas e celebrações de grande porte. 
+                Nosso compromisso é proporcionar uma experiência única, cuidando de cada detalhe com excelência.
+                Contamos com uma equipe altamente qualificada e uma rede de fornecedores de confiança,
+                garantindo soluções inovadoras e personalizadas para tornar o seu evento inesquecível..
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/saintformaturas/" target="_blank">
+                <img src="logos das redes social/instagram.png" alt="Instagram">
+                <span class="tooltip">Instagram</span>
+            </a>
+            <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
+                <img src="logos das redes social/logo.png" alt="WhatsApp">
+                <span class="tooltip">WhatsApp</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
+                <img src="logos das redes social/facebook.png" alt="Facebook">
+                <span class="tooltip">Facebook</span>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        const images = [
+            'fotos de 5minutos/casamento1.jpeg',
+            'fotos de 5minutos/casamento2.jpeg',
+            'fotos de 5minutos/casamento3.jpeg',
+            'fotos de 5minutos/noiva.jpeg',
+            'fotos de 5minutos/casamento6.jpeg'
+        ];
+
+        let currentIndex = 0;
+
+        function changeBackgroundImage() {
+            const imageUrl = images[currentIndex];
+            const img = new Image();
+
+            img.onload = function() {
+                document.body.style.backgroundImage = `url('${imageUrl}')`;
+            };
+
+            img.onerror = function() {
+                console.error(`Erro ao carregar a imagem: ${imageUrl}`);
+            };
+
+            img.src = imageUrl;
+            currentIndex = (currentIndex + 1) % images.length;
+
+            // Desabilita o Clique Direito
+            document.addEventListener('contextmenu', function(e) {
+                e.preventDefault();
+            });
+        }
+
+        // Mudar a imagem de fundo a cada 5 minutos (300.000 ms)
+        setInterval(changeBackgroundImage, 300000);
+
+        // Inicializa a primeira imagem
+        changeBackgroundImage();
+
+        // Exibir as imagens uma por uma na galeria com transição
+        let photoIndex = 0;
+
+        function showNextPhoto() {
+            const photos = document.querySelectorAll('.photo-gallery img');
+            photos.forEach(photo => photo.style.opacity = 0);  // Esconde todas as imagens
+            photos[photoIndex].style.opacity = 1;  // Exibe a imagem atual
+            photoIndex = (photoIndex + 1) % photos.length;
+        }
+
+        // Mostrar uma imagem a cada 5 segundos
+        setInterval(showNextPhoto, 5000);
+
+        // Exibir a primeira imagem
+        showNextPhoto();
+    </script>
+
+</body>
+</html>
