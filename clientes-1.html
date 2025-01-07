@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
+    <link rel="stylesheet" href="css/style.css">
     <style>
         * {
             margin: 0;
@@ -16,7 +17,7 @@
 
         body {
             font-family: 'Roboto', sans-serif;
-            background-color:  #f8c7c7; /* Cor de fundo rosa claro */
+            background-color: #f8c7c7;
             color: #333;
             line-height: 1.6;
         }
@@ -37,7 +38,6 @@
             color: #fff;
             font-size: 1.6rem;
             font-weight: bold;
-            margin-bottom: 0.5rem;
         }
 
         nav ul {
@@ -62,6 +62,46 @@
             background-color: #c2185b;
         }
 
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+
+        .menu-toggle .bar {
+            height: 4px;
+            width: 30px;
+            background-color: #fff;
+            margin: 4px 0;
+            transition: 0.3s;
+        }
+
+        /* Responsivo para telas menores */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(136, 14, 79, 0.9);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li a {
+                text-align: center;
+                padding: 1rem;
+                width: 100%;
+                font-size: 1rem;
+                border-bottom: 1px solid #c2185b;
+            }
+
+            .menu-toggle {
+                display: flex;
+            }
+        }
+
         .header {
             background-color: #880e4f;
             text-align: center;
@@ -71,11 +111,10 @@
 
         .header h3 {
             font-size: 2rem;
-            margin-bottom: 0.5rem;
         }
 
         .gallery-container {
-            max-width: 1200px;
+            max-width: 1000px;
             margin: 2rem auto;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -84,7 +123,7 @@
         }
 
         .gallery-item {
-            background-color: #f2dbdb;
+            background-color: #eed5d5;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
@@ -114,8 +153,6 @@
             color: #fff;
             text-align: center;
             padding: 1rem 0;
-            margin-top: 2rem;
-            width: 100%;
         }
 
         footer a {
@@ -123,191 +160,132 @@
             text-decoration: underline;
         }
 
-        footer a:hover {
-            color: #c2185b;
+        footer .social-icons {
+            position: relative;
+            display: flex;
+            justify-content: center;
         }
 
-        /* Estilo aumentado dos ícones das redes sociais */
+        footer .social-icons a {
+            position: relative;
+            margin: 0 5px; /* Remove o espaço entre os ícones */
+        }
+
         .social-icons img {
-            width: 50px; /* Aumentado para 50px */
-            height: 50px; /* Aumentado para 50px */
+            width: 40px;
+            height: 40px;
             margin: 0 10px;
             transition: transform 0.3s ease;
         }
 
-        .social-icons img:hover {
-            transform: scale(1.1);
+        footer .social-icons img:hover {
+            transform: scale(1.1); /* Aumenta o ícone quando passa o mouse */
         }
 
-        /* Tooltip Style: Inicia oculto */
+        /* Tooltip para os ícones sociais */
         .social-icons a {
             position: relative;
             display: inline-block;
         }
 
-        .social-icons a .tooltip {
-            visibility: hidden;
-            opacity: 0;
+        /* Alteração para o texto aparecer acima dos ícones */
+        .social-icons a::after {
+            content: attr(data-tooltip); /* Exibe o texto armazenado no atributo 'data-tooltip' */
             position: absolute;
-            top: -5px;
+            bottom: 50px; /* Modificado para aparecer acima do ícone */
             left: 50%;
             transform: translateX(-50%);
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
             padding: 5px 10px;
-            font-size: 14px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
             transition: opacity 0.3s ease;
         }
 
-        /* Exibe o tooltip quando o mouse passar sobre o ícone */
-        .social-icons a:hover .tooltip {
-            visibility: visible;
+        .social-icons a:hover::after {
             opacity: 1;
         }
-
-        /* Estilos Responsivos */
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li a {
-                padding: 1rem;
-                font-size: 1rem;
-            }
-
-            .header h3 {
-                font-size: 1.8rem;
-            }
-
-            .gallery-container {
-                padding: 0 1rem;
-            }
-
-            .gallery-item img {
-                height: 250px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h3 {
-                font-size: 1.6rem;
-            }
-
-            .gallery-item img {
-                height: 200px;
-            }
-
-            footer {
-                font-size: 0.9rem;
-            }
-
-            .social-icons img {
-                width: 30px;
-                height: 30px;
-            }
-        }
-        /* Link fixo no canto inferior direito */
-        .contact-link {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #880e4f;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            z-index: 1000;
-        }
-
-        .contact-link:hover {
-            background-color: #c2185b;
-        }
-
     </style>
 </head>
 <body>
 
-    <!-- Link fixo no canto inferior direito -->
-    <a href="formulario1.html" class="contact-link">Entre em Contato</a>
-
-
-    <nav>
-        <div class="logo">Saint Formaturas e Eventos</div>
-        <ul>
-            <li><a href="home.html">HOME</a></li>
-            <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
-            <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
-            <li><a href="clientes-1.html">CLIENTES</a></li>
-            <li><a href="fotoseventos-1.html">FOTOS EM EVENTOS</a></li>
-            <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
-        </ul>
-    </nav>
-
-    <header class="header">
-        <h3>Nosso Portfólio de Clientes</h3>
-    </header>
-
-    <div class="gallery-container">
-        <!-- Exemplo de item de cliente -->
-        <div class="gallery-item">
-            <img src="clientes/polícia.jpg" alt="Policia Militar- Go 1">
-            <h3>Policia Militar-Go</h3>
-        </div>
-        
-        <div class="gallery-item">
-            <img src="clientes/volkswagen.jpg" alt="Volkswagen 2">
-            <h3>Volkswagen</h3>
-        </div>
-
-        <div class="gallery-item">
-            <img src="clientes/mary.jpg" alt="Mary Eventos 3">
-            <h3>Mary Eventos</h3>
-        </div>
-
-        <div class="gallery-item">
-            <img src="clientes/bmw.jpg" alt="bmw 4">
-            <h3>BMW</h3>
-        </div>
-
-        <div class="gallery-item">
-            <img src="clientes/unifimes.jpg" alt="unifimes 5">
-            <h3>Unifimes</h3>
-        </div>
-
-        <div class="gallery-item">
-            <img src="clientes/unip.jpg" alt="unip 6">
-            <h3>Unip</h3>
-        </div>
-
-        <div class="gallery-item">
-            <img src="clientes/inifan.jpg" alt="unifan 7">
-            <h3>Unifan</h3>
-        </div>
-        <!-- Adicionar mais clientes aqui -->
+<nav>
+    <div class="logo">Saint Formaturas e Eventos</div>
+    <div class="menu-toggle" onclick="toggleMenu()">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
     </div>
+    <ul>
+        <li><a href="home.html">HOME</a></li>
+        <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
+        <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
+        <li><a href="clientes-1.html">CLIENTES</a></li>
+        <li><a href="fotoseventos-1.html">FOTOS EM EVENTOS</a></li>
+        <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
+    </ul>
+</nav>
 
-    <footer>
-        <p>&copy; 2024 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/saintformaturas/" target="_blank">
-                <img src="logos das redes social/instagram.png" alt="Instagram">
-                <span class="tooltip">Instagram</span>
-            </a>
-            <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
-                <img src="logos das redes social/logo.png" alt="WhatsApp">
-                <span class="tooltip">WhatsApp</span>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
-                <img src="logos das redes social/facebook.png" alt="Facebook">
-                <span class="tooltip">Facebook</span>
-            </a>
-        </div>
-    </footer>
+<header class="header">
+    <h3>Nosso Portfólio de Clientes</h3>
+</header>
+
+<div class="gallery-container">
+    <div class="gallery-item">
+        <img src="clientes/polícia.jpg" alt="Policia Militar- Go 1">
+        <h3>Policia Militar-Go</h3>
+    </div>
+    <div class="gallery-item">
+        <img src="clientes/volkswagen.jpg" alt="Volkswagen 2">
+        <h3>Volkswagen</h3>
+    </div>
+    <div class="gallery-item">
+        <img src="clientes/mary.jpg" alt="Mary Eventos 3">
+        <h3>Mary Eventos</h3>
+    </div>
+    <div class="gallery-item">
+        <img src="clientes/bmw.jpg" alt="BMW 4">
+        <h3>BMW</h3>
+    </div>
+    <div class="gallery-item">
+        <img src="clientes/unifimes.jpg" alt="Unifimes 5">
+        <h3>Unifimes</h3>
+    </div>
+    <div class="gallery-item">
+        <img src="clientes/unip.jpg" alt="Unip 6">
+        <h3>Unip</h3>
+    </div>
+    <div class="gallery-item">
+        <img src="clientes/inifan.jpg" alt="Unifan 7">
+        <h3>Unifan</h3>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
+    <div class="social-icons">
+        <a href="https://www.instagram.com/saintformaturas/" target="_blank" data-tooltip="Instagram">
+            <img src="logos das redes social/instagram.png" alt="Instagram">
+        </a>
+        <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank" data-tooltip="WhatsApp">
+            <img src="logos das redes social/logo.png" alt="WhatsApp">
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank" data-tooltip="Facebook">
+            <img src="logos das redes social/facebook.png" alt="Facebook">
+        </a>
+    </div>
+</footer>
+
+<script>
+    function toggleMenu() {
+        const menu = document.querySelector('nav ul');
+        menu.classList.toggle('active');
+    }
+</script>
 
 </body>
 </html>

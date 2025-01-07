@@ -15,38 +15,6 @@
             box-sizing: border-box;
         }
 
-        .photo-gallery {
-    display: flex;
-    gap: 20px;
-}
-
-.photo-item {
-    position: relative;
-}
-
-.photo-item img {
-    width: 300px; /* Ou o tamanho desejado */
-    height: 200px; /* Ou o tamanho desejado */
-    object-fit: cover;
-}
-
-.overlay {
-    position: absolute;
-    bottom: 10px; /* Ajusta o texto para ficar mais perto da parte inferior da imagem */
-    left: 50%;
-    transform: translateX(-50%); /* Centraliza o texto horizontalmente */
-    background-color: rgba(0, 0, 0, 0.6); /* Fundo semitransparente */
-    color: white;
-    padding: 10px;
-    font-size: 18px;
-    display: none; /* Inicialmente, o texto está escondido */
-}
-
-.photo-item:hover .overlay {
-    display: block; /* Mostrar o texto quando passar o mouse */
-}
-
-
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f8c7c7;
@@ -70,14 +38,14 @@
 
         nav .logo {
             color: #fff;
-            font-size: 1.5rem;
+            font-size: 1.6rem;
             font-weight: bold;
         }
 
         nav ul {
             list-style: none;
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
 
         nav ul li a {
@@ -92,6 +60,14 @@
             background-color: #c2185b;
         }
 
+        .menu-toggle {
+            display: none;
+            cursor: pointer;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        /* Header e Conteúdo */
         .header {
             background-color: #880e4f;
             text-align: center;
@@ -110,11 +86,6 @@
             flex: 1;
         }
 
-        .about-content {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
         .about-content h2 {
             font-size: 2rem;
             margin-bottom: 1rem;
@@ -123,41 +94,42 @@
         .about-content p {
             font-size: 1.2rem;
             color: #333;
-            margin-bottom: 1.5rem;
         }
 
         .photo-gallery {
             display: flex;
-            justify-content: space-between;
-            gap: 20px;
             flex-wrap: wrap;
+            gap: 20px;
         }
 
-        .photo-gallery .photo-item {
-            flex: 1 1 22%;
-            position: relative;
+        .photo-item {
+            flex: 1 1 calc(33% - 20px);
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
         }
 
-        .photo-gallery img {
+        .photo-item img {
             width: 100%;
             height: auto;
             object-fit: cover;
-            border-radius: 10px;
         }
 
-        .photo-item h3 {
+        .photo-item .overlay {
             position: absolute;
             bottom: 10px;
-            left: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.6);
             color: white;
-            font-size: 1.2rem;
-            font-weight: bold;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 5px 10px;
-            border-radius: 5px;
+            padding: 10px;
+            font-size: 1rem;
+            display: none;
+        }
+
+        .photo-item:hover .overlay {
+            display: block;
         }
 
         footer {
@@ -165,171 +137,98 @@
             color: #fff;
             text-align: center;
             padding: 1rem 0;
-            margin-top: 2rem;
-            width: 100%;
         }
-
-        .values-list {
-            font-size: 1.2rem;
-            text-align: left;
-            color: #333;
-            margin-top: 1.5rem;
-        }
-
-        .values-list div {
-            margin-bottom: 1rem;
-        }
-
-        .values-list strong {
-            color: #880e4f;
-            font-size: 1.3rem;
-        }
-
-        .social-icons {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
         .social-icons img {
-            width: 50px;
-            height: 50px;
+            width: 40px;
+            height: 40px;
             margin: 0 10px;
             transition: transform 0.3s ease;
         }
 
-        .social-icons img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Tooltip Style: Inicia oculto */
+        /* Tooltip para os ícones sociais */
         .social-icons a {
             position: relative;
             display: inline-block;
         }
 
-        .social-icons a .tooltip {
-            visibility: hidden;
-            opacity: 0;
+        /* Alteração para o texto aparecer acima dos ícones */
+        .social-icons a::after {
+            content: attr(data-tooltip); /* Exibe o texto armazenado no atributo 'data-tooltip' */
             position: absolute;
-            top: -30px; /* Ajuste para dar um pouco mais de espaço */
+            bottom: 50px; /* Modificado para aparecer acima do ícone */
             left: 50%;
             transform: translateX(-50%);
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 5px;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
             padding: 5px 10px;
-            font-size: 14px;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
         }
 
-        /* Exibe o tooltip quando o ícone for hover */
-        .social-icons a:hover .tooltip {
-            visibility: visible;
+        .social-icons a:hover::after {
             opacity: 1;
         }
 
+        /* Estilo Responsivo */
         @media (max-width: 768px) {
-            .container {
-                padding: 0.5rem;
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                background-color: rgba(136, 14, 79, 0.9);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li a {
+                text-align: center;
+                font-size: 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
             }
 
             .header h1 {
                 font-size: 2rem;
             }
 
-            .about-content h2 {
-                font-size: 1.5rem;
-            }
-
-            .about-content p {
-                font-size: 1rem;
-            }
-
-            .photo-gallery {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .photo-gallery .photo-item {
-                flex: 1 1 100%;
-                margin-bottom: 1rem;
-            }
-
-            .photo-item h3 {
-                font-size: 1rem;
+            .photo-item {
+                flex: 1 1 calc(100% - 20px);
             }
         }
 
         @media (max-width: 480px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 1rem;
+            .photo-item img {
+                height: auto;
             }
 
-            nav .logo {
-                font-size: 1.2rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                gap: 10px;
-            }
-
-            nav ul li a {
-                font-size: 0.9rem;
-                padding: 0.3rem 0.6rem;
-            }
-
-            .header h1 {
-                font-size: 1.5rem;
-            }
-
-            .about-content h2 {
-                font-size: 1.2rem;
-            }
-
-            .about-content p {
+            .photo-item .overlay {
                 font-size: 0.9rem;
             }
 
             footer {
-                padding: 0.5rem;
-                font-size: 0.9rem;
+                font-size: 0.8rem;
             }
         }
-        
-         /* Link fixo no canto inferior direito */
-        .contact-link {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #880e4f;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            z-index: 1000;
-        }
-
-        .contact-link:hover {
-            background-color: #c2185b;
-        }
-
     </style>
 </head>
 <body>
 
-    <!-- Link fixo no canto inferior direito -->
-    <a href="formulario1.html" class="contact-link">Entre em Contato</a>
-
-
 <nav>
     <div class="logo">Saint Formaturas e Eventos</div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
     <ul>
         <li><a href="home.html">HOME</a></li>
         <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
@@ -346,68 +245,59 @@
 
 <div class="container">
     <div class="about-content">
-        <h2>Sobre a Saint Formaturas e Eventos</h2>
-        <p>Somos uma empresa de eventos com o objetivo de revolucionar o setor. Nossa missão é criar e desenvolver ideias emocionantes, trazendo benefícios e profissionais altamente qualificados para garantir que seus sonhos estejam em boas mãos.</p>
+        <h1>Sobre a Saint Formaturas e Eventos</h1>
+        <p>Somos uma empresa especializada na organização de eventos de formaturas, com um compromisso de oferecer os melhores serviços para garantir momentos inesquecíveis. Trabalhamos com dedicação, paixão e profissionalismo para realizar eventos de sucesso.</p>
         
         <h3>Missão</h3>
-        <p>Fornecer soluções inovadoras para a estruturação de eventos, ajudando nossos clientes a melhorar a eficiência e a segurança de seus projetos. Oferecemos um serviço dedicado e integrado, com foco no mercado global, sempre investindo em inovações como um componente fundamental do nosso negócio.</p>
+        <p>Proporcionar aos nossos clientes momentos memoráveis, com qualidade e excelência, através de um planejamento detalhado e uma execução impecável de eventos, respeitando as necessidades e expectativas de cada um.</p>
 
         <h3>Visão</h3>
-        <p>Na Saint Formaturas e Eventos Cerimonial, nossa visão é crescer de forma sustentável, expandindo gradualmente para novas regiões. Buscamos oferecer as melhores soluções de estruturação de eventos no Brasil e na Europa, com a intenção de levar nossa expertise a outros países onde soluções de alta qualidade são necessárias.</p>
+        <p>Ser referência nacional e internacional na organização de eventos, especialmente formaturas, reconhecida pela inovação, qualidade e compromisso com o sucesso de cada projeto.</p>
 
         <h3>Valores</h3>
         <div class="values-list">
-            <div><strong>Integridade:</strong> Valorizamos a honestidade e a sinceridade, sendo sempre fiéis à nossa palavra.</div>
-            <div><strong>Inovação:</strong> Buscamos constantemente novas ideias e melhorias em nossos serviços e processos para atender melhor aos nossos clientes.</div>
-            <div><strong>Simplicidade:</strong> Trabalhamos de forma simples e cordial, sem arrogância ou orgulho.</div>
-            <div><strong>Respeito:</strong> Temos uma consideração especial pelos indivíduos, especialmente pelos nossos colaboradores, que são o coração da nossa empresa.</div>
-            <div><strong>Compromisso:</strong> Estamos todos empenhados no sucesso do nosso plano de negócios e nas metas da empresa.</div>
-            <div><strong>Trabalho em Equipa:</strong> A colaboração, confiança e comunicação são fundamentais em nosso trabalho, independentemente do cargo ou responsabilidade.</div>
-            <div><strong>Foco no Cliente:</strong> Todos os nossos valores são orientados para a satisfação das necessidades dos nossos clientes, que são a razão de existirmos.</div>
+            <div><strong>Comprometimento:</strong> Cumprir com excelência cada tarefa, com total dedicação e profissionalismo.</div>
+            <div><strong>Inovação:</strong> Buscar sempre soluções criativas e modernas para proporcionar experiências únicas.</div>
+            <div><strong>Respeito:</strong> Tratar todos com ética, respeito e consideração, criando um ambiente de confiança.</div>
         </div>
     </div>
 
     <div class="photo-gallery">
         <div class="photo-item">
-            <img src="sobrenos/sobrenos.jpeg" alt="responsabilidade">
-        <div class="overlay">Responsabilidade</div>
+            <img src="sobrenos/sobrenos.png" alt="responsabilidade">
+            <div class="overlay">Responsabilidade</div>
         </div>
         <div class="photo-item">
-            <img src="sobrenos/dedicacao.jpeg" alt="dedicação">
+            <img src="sobrenos/dedicacao.png" alt="dedicação">
             <div class="overlay">Dedicação</div>
         </div>
         <div class="photo-item">
-            <img src="sobrenos/planejamento.jpeg" alt="planejamento">
+            <img src="sobrenos/planejamento.png" alt="planejamento">
             <div class="overlay">Planejamento</div>
         </div>
     </div>
 </div>
 
 <footer>
-    <p>&copy; 2024 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
+    <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
     <div class="social-icons">
-        <a href="https://www.instagram.com/saintformaturas/" target="_blank">
+        <a href="https://www.instagram.com/saintformaturas/" target="_blank" data-tooltip="Instagram">
             <img src="logos das redes social/instagram.png" alt="Instagram">
-            <span class="tooltip">Instagram</span>
         </a>
-        <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
+        <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank" data-tooltip="WhatsApp">
             <img src="logos das redes social/logo.png" alt="WhatsApp">
-            <span class="tooltip">WhatsApp</span>
         </a>
-        <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
+        <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank" data-tooltip="Facebook">
             <img src="logos das redes social/facebook.png" alt="Facebook">
-            <span class="tooltip">Facebook</span>
         </a>
     </div>
 </footer>
 
 <script>
-    const socialLinks = document.querySelectorAll('.social-icons a');
-    socialLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            link.classList.toggle('clicked');
-        });
-    });
+    function toggleMenu() {
+        const menu = document.querySelector("nav ul");
+        menu.classList.toggle("active");
+    }
 </script>
 
 </body>
