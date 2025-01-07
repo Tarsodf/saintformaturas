@@ -59,6 +59,31 @@
             background-color: #c2185b;
         }
 
+        .menu-toggle {
+            display: none;
+            font-size: 2rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .nav-links {
+            display: flex;
+        }
+
+        .nav-links.active {
+            display: block;
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background-color: rgba(136, 14, 79, 0.9);
+            width: 100%;
+            text-align: center;
+        }
+
+        .nav-links li {
+            margin: 10px 0;
+        }
+
         .header {
             background-color: #880e4f;
             text-align: center;
@@ -211,6 +236,15 @@
             nav ul li {
                 margin-bottom: 10px;
             }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+            }
         }
 
         @media (max-width: 480px) {
@@ -257,11 +291,12 @@
 </head>
 <body>
 
-    <a href="formulario1.html" class="contact-link">Entre em Contato</a>
-
-<nav>
+    <nav>
     <div class="logo">Saint Formaturas e Eventos</div>
-    <ul>
+    <div class="menu-toggle">
+        <i class="fas fa-bars"></i>
+    </div>
+    <ul class="nav-links">
         <li><a href="home.html">HOME</a></li>
         <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
         <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
@@ -408,6 +443,14 @@
 </footer>
 
 <script>
+    // Menu hambúrguer
+    const menuToggle = document.querySelector('.menu-toggle');
+    const navLinks = document.querySelector('.nav-links');
+
+    menuToggle.addEventListener('click', () => {
+        navLinks.classList.toggle('active');
+    });
+
     document.querySelectorAll('.gallery').forEach(function (gallery) {
         const items = gallery.querySelectorAll('.gallery-item');
         let currentIndex = 0;
@@ -419,33 +462,29 @@
             items[currentIndex].classList.add('active');
         }
 
-        // Navegação manual para a imagem anterior
-        gallery.querySelector('.prev').addEventListener('click', function () {
-            autoChange = false;
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
-            changeImage();
-        });
-
-        // Navegação manual para a próxima imagem
-        gallery.querySelector('.next').addEventListener('click', function () {
-            autoChange = false;
+        // Navegar para a próxima imagem
+        function nextImage() {
             currentIndex = (currentIndex + 1) % items.length;
             changeImage();
-        });
+        }
+
+        // Navegar para a imagem anterior
+        function prevImage() {
+            currentIndex = (currentIndex - 1 + items.length) % items.length;
+            changeImage();
+        }
+
+        // Ações de clique
+        gallery.querySelector('.next').addEventListener('click', nextImage);
+        gallery.querySelector('.prev').addEventListener('click', prevImage);
+
+        // Trocar imagens automaticamente
+        setInterval(() => {
+            if (autoChange) nextImage();
+        }, 4000); // 4 segundos de intervalo
 
         // Iniciar com a primeira imagem visível
         changeImage();
-
-        // Função de navegação automática
-        function autoNavigate() {
-            if (autoChange) {
-                currentIndex = (currentIndex + 1) % items.length;
-                changeImage();
-            }
-        }
-
-        // Intervalo para navegação automática
-        setInterval(autoNavigate, 2000);
     });
 </script>
 
