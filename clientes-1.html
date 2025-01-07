@@ -100,6 +100,15 @@
             .menu-toggle {
                 display: flex;
             }
+
+            .gallery-container {
+                padding: 0 1rem;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta o número de colunas */
+            }
+
+            .gallery-item img {
+                height: 250px; /* Ajusta a altura das imagens em telas menores */
+            }
         }
 
         .header {
@@ -117,7 +126,7 @@
             max-width: 1000px;
             margin: 2rem auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Organiza em várias colunas */
             gap: 1.5rem;
             padding: 0 2rem;
         }
