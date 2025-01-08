@@ -149,6 +149,8 @@
             visibility: visible;
             opacity: 1;
         }
+
+        /* Responsividade */
         @media (max-width: 768px) {
             nav ul {
                 display: none;
@@ -177,6 +179,7 @@
                 height: auto;
             }
         }
+
         @media (max-width: 480px) {
             .gallery-container {
                 grid-template-columns: 1fr;
@@ -263,8 +266,8 @@
 </footer>
 <script>
     function toggleMenu() {
-        const menu = document.querySelector('nav ul');
-        menu.classList.toggle('active');
+        const menu = document.querySelector("nav ul");
+        menu.classList.toggle("active");
     }
 </script>
 </body>

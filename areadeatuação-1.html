@@ -10,19 +10,13 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.33.0/css/blueimp-gallery.min.css">
     <!-- CSS externo -->
     <link rel="stylesheet" href="css/style.css">
-	
 </head>
 <body>
-   
 
     <!-- Navegação -->
     <nav>
         <div class="logo">Saint Formaturas e Eventos</div>
-        <div class="menu-toggle" id="menu-toggle">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
+        <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰</div>
         <ul id="nav-list">
             <li><a href="home.html">HOME</a></li>
             <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
@@ -40,21 +34,21 @@
 
     <!-- Conteúdo principal -->
     <div class="container">
-		<div class="area-content">
-			<img src="Atuação/atuaçao.jpg" alt="Imagem representativa da área de atuação">
-			<div class="area-text">
-				<h2>Nossas Áreas de Atuação</h2>
-				<p>Saint Formaturas e Eventos oferece uma gama completa de serviços para a realização de eventos inesquecíveis. Com experiência em Portugal e no Brasil, garantimos excelência em cada detalhe.</p>
-				<ul>
-					<li><strong>Formaturas:</strong> Planejamento e execução de cerimônias e festas de formatura com requinte e organização impecáveis.</li>
-					<li><strong>Casamentos:</strong> Cerimonial completo para casamentos, desde a escolha do local até a organização do evento.</li>
-					<li><strong>Eventos Corporativos:</strong> Organização de eventos empresariais, conferências e convenções, proporcionando um ambiente profissional e elegante.</li>
-					<li><strong>Eventos Sociais:</strong> Realização de festas de aniversário, bodas e outros eventos sociais com dedicação e personalização.</li>
-					<li><strong>Assessoria e Consultoria de Eventos:</strong> Orientação especializada para a realização de eventos personalizados, incluindo consultoria para escolha de fornecedores, controle de orçamentos e prazos.</li>
-				</ul>
-			</div>
-		</div>
-	</div>
+        <div class="area-content">
+            <img src="Atuação/atuaçao.jpg" alt="Imagem representativa da área de atuação">
+            <div class="area-text">
+                <h2>Nossas Áreas de Atuação</h2>
+                <p>Saint Formaturas e Eventos oferece uma gama completa de serviços para a realização de eventos inesquecíveis. Com experiência em Portugal e no Brasil, garantimos excelência em cada detalhe.</p>
+                <ul>
+                    <li><strong>Formaturas:</strong> Planejamento e execução de cerimônias e festas de formatura com requinte e organização impecáveis.</li>
+                    <li><strong>Casamentos:</strong> Cerimonial completo para casamentos, desde a escolha do local até a organização do evento.</li>
+                    <li><strong>Eventos Corporativos:</strong> Organização de eventos empresariais, conferências e convenções, proporcionando um ambiente profissional e elegante.</li>
+                    <li><strong>Eventos Sociais:</strong> Realização de festas de aniversário, bodas e outros eventos sociais com dedicação e personalização.</li>
+                    <li><strong>Assessoria e Consultoria de Eventos:</strong> Orientação especializada para a realização de eventos personalizados, incluindo consultoria para escolha de fornecedores, controle de orçamentos e prazos.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <!-- Rodapé -->
     <footer>
@@ -77,13 +71,11 @@
 
     <script>
         // Toggle de menu para mobile
-        const menuToggle = document.getElementById('menu-toggle');
-        const navList = document.getElementById('nav-list');
-        
-        // Alternar visibilidade do menu
-        menuToggle.addEventListener('click', () => {
-            navList.classList.toggle('nav-active');
-        });
+        function toggleMenu() {
+            const menu = document.querySelector("nav ul");
+            menu.classList.toggle("active");
+        }
     </script>
+
 </body>
 </html>

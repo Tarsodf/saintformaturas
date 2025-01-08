@@ -20,7 +20,7 @@
     <nav>
         <div class="logo">Saint Formaturas e Eventos</div>
         <!-- Ícone de hamburger -->
-        <div class="menu-toggle" id="menu-toggle">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
@@ -82,9 +82,11 @@
 		const navList = document.getElementById('nav-list');
 
 		// Alternar visibilidade do menu
-		menuToggle.addEventListener('click', () => {
-			navList.classList.toggle('nav-active');
-		});
+		function toggleMenu() {
+    const menu = document.querySelector("nav ul");
+    menu.classList.toggle("active");
+    }
+
     </script>
 
     <!-- Scripts -->

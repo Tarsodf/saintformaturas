@@ -115,6 +115,7 @@
             border: 1px solid #ccc;
             border-radius: 8px;
             transition: border-color 0.3s ease;
+            max-width: 100%;
         }
 
         input:focus, select:focus, textarea:focus {
@@ -246,16 +247,27 @@
                 flex-direction: column;
                 align-items: center;
             }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                background-color: rgba(136, 14, 79, 0.9);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+            }
         }
+
     </style>
 </head>
 <body>
 
 <nav>
     <div class="logo">Saint Formaturas e Eventos</div>
-    <div class="hamburger-menu" id="hamburgerMenu">
-        <i class="fas fa-bars"></i>
-    </div>
+    <div class="hamburger-menu" onclick="toggleMenu()">☰</div>
     <ul>
         <li><a href="home.html">HOME</a></li>
         <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
@@ -330,6 +342,11 @@
                 document.getElementById('successMessage').style.display = 'none';
             }, 5000);
         }, 1000);
+    }
+
+    function toggleMenu() {
+        const menu = document.querySelector("nav ul");
+        menu.classList.toggle("active");
     }
 
     window.onbeforeunload = function() {

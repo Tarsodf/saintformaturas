@@ -116,11 +116,13 @@ nav ul li a:hover {
         z-index: 9;
     }
 
-    /* Exibe o menu quando a classe 'nav-active' for adicionada */
-    nav ul.nav-active {
+    .menu-toggle {
         display: flex;
+        cursor: pointer;
+        color: white;
+        font-size: 1.5rem;
     }
-
+    
     /* Exibe o ícone de hambúrguer */
     .menu-toggle {
         display: flex;
@@ -133,6 +135,30 @@ nav ul li a:hover {
         text-align: center;
         width: 100%;
     }
+
+    nav {
+        flex-direction: column;
+        padding: 1rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    nav ul li a {
+        font-size: 1rem;
+        padding: 0.5rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    header p {
+        font-size: 1.2rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -142,6 +168,18 @@ nav ul li a:hover {
 
     nav ul li a {
         font-size: 1rem;
+    }
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    header p {
+        font-size: 1rem;
+    }
+
+    main {
+        padding: 1rem;
     }
 }
 
@@ -202,55 +240,6 @@ footer a {
 
 footer a:hover {
     color: #c2185b;
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-    nav {
-        flex-direction: column;
-        padding: 1rem;
-    }
-
-    nav ul {
-        flex-direction: column;
-        align-items: center;
-        gap: 10px;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-        padding: 0.5rem;
-    }
-
-    header h1 {
-        font-size: 2rem;
-    }
-
-    header p {
-        font-size: 1.2rem;
-    }
-}
-
-@media (max-width: 480px) {
-    nav .logo {
-        font-size: 1.4rem;
-    }
-
-    nav ul li a {
-        font-size: 0.9rem;
-    }
-
-    header h1 {
-        font-size: 1.8rem;
-    }
-
-    header p {
-        font-size: 1rem;
-    }
-
-    main {
-        padding: 1rem;
-    }
 }
 
 /* Galeria de fotos */
