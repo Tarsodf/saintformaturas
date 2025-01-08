@@ -7,49 +7,39 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
-    <link rel="stylesheet" href="css/style.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
             font-family: 'Roboto', sans-serif;
             background-color: #f8c7c7;
             color: #333;
             line-height: 1.6;
         }
-
         nav {
             background-color: rgba(136, 14, 79, 0.9);
             padding: 1rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: sticky;
+            position: fixed;
             top: 0;
+            width: 100%;
             z-index: 10;
-            flex-wrap: wrap;
         }
-
         nav .logo {
             color: #fff;
             font-size: 1.6rem;
             font-weight: bold;
         }
-
         nav ul {
             list-style: none;
             display: flex;
             gap: 20px;
         }
-
-        nav ul li {
-            display: inline-block;
-        }
-
         nav ul li a {
             color: #fff;
             font-size: 1.2rem;
@@ -57,17 +47,14 @@
             padding: 0.5rem 1rem;
             border-radius: 5px;
         }
-
         nav ul li a:hover {
             background-color: #c2185b;
         }
-
         .menu-toggle {
             display: none;
             flex-direction: column;
             cursor: pointer;
         }
-
         .menu-toggle .bar {
             height: 4px;
             width: 30px;
@@ -75,80 +62,39 @@
             margin: 4px 0;
             transition: 0.3s;
         }
-
-        /* Responsivo para telas menores */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-                flex-direction: column;
-                width: 100%;
-                background-color: rgba(136, 14, 79, 0.9);
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav ul li a {
-                text-align: center;
-                padding: 1rem;
-                width: 100%;
-                font-size: 1rem;
-                border-bottom: 1px solid #c2185b;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .gallery-container {
-                padding: 0 1rem;
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Ajusta o número de colunas */
-            }
-
-            .gallery-item img {
-                height: 250px; /* Ajusta a altura das imagens em telas menores */
-            }
-        }
-
         .header {
             background-color: #880e4f;
             text-align: center;
             padding: 2rem 0;
             color: #fff;
+            margin-top: 60px;
         }
-
         .header h3 {
             font-size: 2rem;
         }
-
         .gallery-container {
             max-width: 1000px;
             margin: 2rem auto;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Organiza em várias colunas */
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             gap: 1.5rem;
             padding: 0 2rem;
         }
-
         .gallery-item {
             background-color: #eed5d5;
             border-radius: 10px;
             box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
             overflow: hidden;
         }
-
         .gallery-item img {
             width: 100%;
             height: 300px;
             object-fit: cover;
             transition: transform 0.3s ease;
         }
-
         .gallery-item img:hover {
             transform: scale(1.1);
         }
-
         .gallery-item h3 {
             text-align: center;
             padding: 1rem;
@@ -156,72 +102,99 @@
             color: #880e4f;
             font-weight: bold;
         }
-
         footer {
             background-color: #880e4f;
             color: #fff;
             text-align: center;
             padding: 1rem 0;
         }
-
         footer a {
             color: #fff;
             text-decoration: underline;
         }
-
         footer .social-icons {
-            position: relative;
             display: flex;
             justify-content: center;
+            gap: 20px;
         }
-
-        footer .social-icons a {
+        .social-icons a {
             position: relative;
-            margin: 0 5px; /* Remove o espaço entre os ícones */
+            text-align: center;
         }
-
         .social-icons img {
             width: 40px;
             height: 40px;
-            margin: 0 10px;
             transition: transform 0.3s ease;
         }
-
-        footer .social-icons img:hover {
-            transform: scale(1.1); /* Aumenta o ícone quando passa o mouse */
+        .social-icons img:hover {
+            transform: scale(1.1);
         }
-
-        /* Tooltip para os ícones sociais */
-        .social-icons a {
-            position: relative;
-            display: inline-block;
-        }
-
-        /* Alteração para o texto aparecer acima dos ícones */
-        .social-icons a::after {
-            content: attr(data-tooltip); /* Exibe o texto armazenado no atributo 'data-tooltip' */
+        /* Tooltip */
+        .social-icons a span {
+            visibility: hidden;
+            opacity: 0;
             position: absolute;
-            bottom: 50px; /* Modificado para aparecer acima do ícone */
+            bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
             background-color: rgba(0, 0, 0, 0.8);
-            color: white;
+            color: #fff;
             padding: 5px 10px;
             border-radius: 5px;
             font-size: 0.9rem;
             white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
             transition: opacity 0.3s ease;
         }
-
-        .social-icons a:hover::after {
+        .social-icons a:hover span {
+            visibility: visible;
             opacity: 1;
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: rgba(136, 14, 79, 0.9);
+            }
+            nav ul.active {
+                display: flex;
+            }
+            nav ul li a {
+                text-align: center;
+                padding: 1rem;
+                font-size: 1rem;
+                border-bottom: 1px solid #c2185b;
+            }
+            .menu-toggle {
+                display: flex;
+            }
+            .gallery-container {
+                padding: 0 1rem;
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+                gap: 15px;
+            }
+            .gallery-item img {
+                height: auto;
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery-container {
+                grid-template-columns: 1fr;
+            }
+            .gallery-item h3 {
+                font-size: 1rem;
+            }
+            footer {
+                padding: 1rem;
+            }
+            .social-icons img {
+                width: 30px;
+                height: 30px;
+            }
         }
     </style>
 </head>
 <body>
-
 <nav>
     <div class="logo">Saint Formaturas e Eventos</div>
     <div class="menu-toggle" onclick="toggleMenu()">
@@ -238,63 +211,61 @@
         <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
     </ul>
 </nav>
-
 <header class="header">
     <h3>Nosso Portfólio de Clientes</h3>
 </header>
-
 <div class="gallery-container">
     <div class="gallery-item">
-        <img src="clientes/polícia.jpg" alt="Policia Militar- Go 1">
-        <h3>Policia Militar-Go</h3>
+        <img src="clientes/polícia.jpg" alt="Polícia Militar-Go">
+        <h3>Polícia Militar-Go</h3>
     </div>
     <div class="gallery-item">
-        <img src="clientes/volkswagen.jpg" alt="Volkswagen 2">
+        <img src="clientes/volkswagen.jpg" alt="Volkswagen">
         <h3>Volkswagen</h3>
     </div>
     <div class="gallery-item">
-        <img src="clientes/mary.jpg" alt="Mary Eventos 3">
+        <img src="clientes/mary.jpg" alt="Mary Eventos">
         <h3>Mary Eventos</h3>
     </div>
     <div class="gallery-item">
-        <img src="clientes/bmw.jpg" alt="BMW 4">
+        <img src="clientes/bmw.jpg" alt="BMW">
         <h3>BMW</h3>
     </div>
     <div class="gallery-item">
-        <img src="clientes/unifimes.jpg" alt="Unifimes 5">
+        <img src="clientes/unifimes.jpg" alt="Unifimes">
         <h3>Unifimes</h3>
     </div>
     <div class="gallery-item">
-        <img src="clientes/unip.jpg" alt="Unip 6">
+        <img src="clientes/unip.jpg" alt="Unip">
         <h3>Unip</h3>
     </div>
     <div class="gallery-item">
-        <img src="clientes/inifan.jpg" alt="Unifan 7">
+        <img src="clientes/inifan.jpg" alt="Unifan">
         <h3>Unifan</h3>
     </div>
 </div>
-
 <footer>
-    <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
+    <p>© 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
     <div class="social-icons">
-        <a href="https://www.instagram.com/saintformaturas/" target="_blank" data-tooltip="Instagram">
+        <a href="https://www.instagram.com/saintformaturas/" target="_blank">
             <img src="logos das redes social/instagram.png" alt="Instagram">
+            <span>Instagram</span>
         </a>
-        <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank" data-tooltip="WhatsApp">
+        <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
             <img src="logos das redes social/logo.png" alt="WhatsApp">
+            <span>WhatsApp</span>
         </a>
-        <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank" data-tooltip="Facebook">
+        <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
             <img src="logos das redes social/facebook.png" alt="Facebook">
+            <span>Facebook</span>
         </a>
     </div>
 </footer>
-
 <script>
     function toggleMenu() {
         const menu = document.querySelector('nav ul');
         menu.classList.toggle('active');
     }
 </script>
-
 </body>
 </html>
