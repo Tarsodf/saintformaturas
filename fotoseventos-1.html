@@ -175,7 +175,7 @@
         }
 
         .social-icons a {
-            margin: 0 10px;
+            margin: 0 0px;
             display: inline-block;
             position: relative;
         }
@@ -315,7 +315,7 @@
     <div class="galleries">
         <!-- Galeria Polícia Militar -->
         <div class="gallery">
-            <h2>Polícia Militar-Go</h2>
+            <h2>Polícia Militar-Go:</h2>
             <button class="prev">&#10094;</button>
             <button class="next">&#10095;</button>
             <div class="gallery-item active">
@@ -334,7 +334,7 @@
 
         <!-- Galeria Formandos Acadêmicos -->
         <div class="gallery">
-            <h2>Formandos Acadêmicos</h2>
+            <h2>Formandos Acadêmicos:</h2>
             <button class="prev">&#10094;</button>
             <button class="next">&#10095;</button>
             <div class="gallery-item active">
@@ -362,7 +362,7 @@
 
         <!-- Galeria Casamentos -->
         <div class="gallery casamentos">
-            <h2>Casamentos</h2>
+            <h2>Casamentos:</h2>
             <button class="prev">&#10094;</button>
             <button class="next">&#10095;</button>
             <div class="gallery-item active">
@@ -393,7 +393,7 @@
 
         <!-- Galeria Decoração -->
         <div class="gallery decoracao">
-            <h2>Decoração</h2>
+            <h2>Decoração:</h2>
             <button class="prev">&#10094;</button>
             <button class="next">&#10095;</button>
             <div class="gallery-item active">
@@ -447,9 +447,11 @@
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
 
-    menuToggle.addEventListener('click', () => {
-        navLinks.classList.toggle('active');
-    });
+    function toggleMenu() {
+        const menu = document.querySelector("nav ul");
+        menu.classList.toggle("active");
+    }
+    
 
     document.querySelectorAll('.gallery').forEach(function (gallery) {
         const items = gallery.querySelectorAll('.gallery-item');

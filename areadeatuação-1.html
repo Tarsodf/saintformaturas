@@ -74,12 +74,9 @@
     </footer>
 
     <script>
-        // Toggle de menu para mobile
-        const menuToggle = document.getElementById('menu-toggle');
-        const navList = document.getElementById('nav-list');
-        
         function toggleMenu() {
-            navList.classList.toggle("active");
+        const menu = document.querySelector("nav ul");
+        menu.classList.toggle("active");
         }
     </script>
 </body>
