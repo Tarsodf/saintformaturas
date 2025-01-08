@@ -109,13 +109,13 @@ nav ul li a:hover {
     }
 
     .menu-toggle {
-    display: block;
-}
-nav ul {
-    display: none;
-}
+        display: block;
+    }
 
-    
+    nav ul {
+        display: none;
+    }
+
     nav ul li a {
         font-size: 1.5rem;
         padding: 1rem;
