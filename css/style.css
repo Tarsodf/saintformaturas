@@ -25,7 +25,7 @@ body {
     background-color: #edd0d0;
     background-size: cover;
     background-position: center;
-    transition: background-image 1s ease-in-out; /* Adicionando a transição suave */
+    transition: background-image 1s ease-in-out; /* Transição suave para a imagem de fundo */
 }
 
 /* Navegação */
@@ -92,13 +92,10 @@ nav ul li a:hover {
     /* Esconde o menu na versão padrão */
     #nav-list {
         display: none;
-        /* Outros estilos de menu */
     }
 
     #nav-list.active {
         display: block;
-        /* Estilos para exibir o menu */
-        width: 100%;
         flex-direction: column;
         align-items: center;
         gap: 10px;
@@ -112,18 +109,13 @@ nav ul li a:hover {
     }
 
     .menu-toggle {
-        display: flex;
-        cursor: pointer;
-        color: white;
-        font-size: 1.5rem;
-    }
-    
-    /* Exibe o ícone de hambúrguer */
-    .menu-toggle {
-        display: flex;
-    }
+    display: block;
+}
+nav ul {
+    display: none;
+}
 
-    /* Ajusta o tamanho da fonte do menu em telas pequenas */
+    
     nav ul li a {
         font-size: 1.5rem;
         padding: 1rem;
@@ -140,11 +132,6 @@ nav ul li a:hover {
         flex-direction: column;
         align-items: center;
         gap: 10px;
-    }
-
-    nav ul li a {
-        font-size: 1rem;
-        padding: 0.5rem;
     }
 
     header h1 {
@@ -208,7 +195,6 @@ main {
     background-color: #edd0d0;
     position: relative;
     z-index: 2;
-    margin-bottom: 0; /* Remove o espaço inferior do conteúdo principal */
 }
 
 /* Texto principal */
@@ -344,19 +330,19 @@ footer a:hover {
     align-items: center;
     justify-content: space-between;
     padding: 2rem;
+    flex-wrap: wrap;
 }
 
 /* Estilos para a imagem */
 .area-content img {
-    max-width: 90%;
+    max-width: 100%;
     height: auto;
-    width: 100%;
     border-radius: 18px;
 }
 
 /* Estilos para o texto */
 .area-text {
-    flex: 100%;
+    flex: 1;
     max-width: 50%;
 }
 
