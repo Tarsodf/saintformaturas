@@ -1,3 +1,4 @@
+/* Estilo básico de imagem */
 img {
     max-width: 100%;
     height: auto;
@@ -71,18 +72,6 @@ nav ul li a:hover {
     background-color: #c2185b;
 }
 
-/* Cabeçalho */
-.header {
-    background-color: #880e4f;
-    color: #fff;
-    text-align: center;
-    padding: 2rem 0;
-}
-
-.header h1 {
-    font-size: 2.5rem; /* Ajusta o tamanho do título */
-}
-
 /* Estilos para o ícone de hambúrguer */
 .menu-toggle {
     display: none;
@@ -101,8 +90,14 @@ nav ul li a:hover {
 /* Responsividade para telas pequenas */
 @media (max-width: 768px) {
     /* Esconde o menu na versão padrão */
-    nav ul {
+    #nav-list {
         display: none;
+        /* Outros estilos de menu */
+    }
+
+    #nav-list.active {
+        display: block;
+        /* Estilos para exibir o menu */
         width: 100%;
         flex-direction: column;
         align-items: center;
