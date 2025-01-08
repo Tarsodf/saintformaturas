@@ -292,203 +292,197 @@
 <body>
 
     <nav>
-    <div class="logo">Saint Formaturas e Eventos</div>
-    <div class="menu-toggle">
-        <i class="fas fa-bars"></i>
+        <div class="logo">Saint Formaturas e Eventos</div>
+        <div class="menu-toggle" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul class="nav-links">
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
+            <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
+            <li><a href="clientes-1.html">CLIENTES</a></li>
+            <li><a href="fotoseventos-1.html">FOTOS DE EVENTOS</a></li>
+            <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
+        </ul>
+    </nav>
+
+    <header class="header">
+        <h1>Fotos de Eventos</h1>
+    </header>
+
+    <div class="container">
+        <h1>Galerias de Eventos</h1>
+        <div class="galleries">
+            <!-- Galeria Polícia Militar -->
+            <div class="gallery">
+                <h2>Polícia Militar-Go:</h2>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+                <div class="gallery-item active">
+                    <img src="Policia/policia15.jpeg" alt="Polícia Militar-Go 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="Policia/policia2.jpeg" alt="Polícia Militar-Go 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="Policia/policia3.jpeg" alt="Polícia Militar-Go 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="Policia/policia4.jpeg" alt="Polícia Militar-Go 4">
+                </div>
+            </div>
+
+            <!-- Galeria Formandos Acadêmicos -->
+            <div class="gallery">
+                <h2>Formandos Acadêmicos:</h2>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+                <div class="gallery-item active">
+                    <img src="Formando Academicos/formando1.jpeg" alt="Formando 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="Formando Academicos/formando2.jpeg" alt="Formando 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="Formando Academicos/formando8.jpeg" alt="Formando 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="Formando Academicos/formando4.jpeg" alt="Formando 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="Formando Academicos/formando5.jpeg" alt="Formando 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="Formando Academicos/formando6.jpeg" alt="Formando 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="Formando Academicos/formando10.jpeg" alt="Formando 7">
+                </div>
+            </div>
+
+            <!-- Galeria Casamentos -->
+            <div class="gallery casamentos">
+                <h2>Casamentos:</h2>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+                <div class="gallery-item active">
+                    <img src="Casamentos/casamento11.jpeg" alt="Casamento 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="Casamentos/casamento2.jpeg" alt="Casamento 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="Casamentos/casamento3.jpeg" alt="Casamento 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="Casamentos/casamento4.jpeg" alt="Casamento 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="Casamentos/casamento5.jpeg" alt="Casamento 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="Casamentos/casamento6.jpeg" alt="Casamento 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="Casamentos/casamento7.jpeg" alt="Casamento 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="Casamentos/casamento8.jpeg" alt="Casamento 8">
+                </div>
+            </div>
+
+            <!-- Galeria Decoração -->
+            <div class="gallery decoracao">
+                <h2>Decoração:</h2>
+                <button class="prev">&#10094;</button>
+                <button class="next">&#10095;</button>
+                <div class="gallery-item active">
+                    <img src="decoração/decoraçao.jpeg" alt="Decoração 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="decoração/decoraçao2.jpeg" alt="Decoração 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="decoração/decoraçao3.jpeg" alt="Decoração 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="decoração/decoraçao4.jpeg" alt="Decoração 4">
+                </div>
+                <div class="gallery-item">
+                    <img src="decoração/decoraçao5.jpeg" alt="Decoração 5">
+                </div>
+                <div class="gallery-item">
+                    <img src="decoração/decoraçao6.jpeg" alt="Decoração 6">
+                </div>
+                <div class="gallery-item">
+                    <img src="decoração/decoraçao7.jpeg" alt="Decoração 7">
+                </div>
+                <div class="gallery-item">
+                    <img src="decoração/decoraçao8.jpeg" alt="Decoração 8">
+                </div>
+            </div>
+        </div>
     </div>
-    <ul class="nav-links">
-        <li><a href="home.html">HOME</a></li>
-        <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
-        <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
-        <li><a href="clientes-1.html">CLIENTES</a></li>
-        <li><a href="fotoseventos-1.html">FOTOS DE EVENTOS</a></li>
-        <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
-    </ul>
-</nav>
 
-<header class="header">
-    <h1>Fotos de Eventos</h1>
-</header>
-
-<div class="container">
-    <h1>Galerias de Eventos</h1>
-    <div class="galleries">
-        <!-- Galeria Polícia Militar -->
-        <div class="gallery">
-            <h2>Polícia Militar-Go:</h2>
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
-            <div class="gallery-item active">
-                <img src="Policia/policia15.jpeg" alt="Polícia Militar-Go 1">
-            </div>
-            <div class="gallery-item">
-                <img src="Policia/policia2.jpeg" alt="Polícia Militar-Go 2">
-            </div>
-            <div class="gallery-item">
-                <img src="Policia/policia3.jpeg" alt="Polícia Militar-Go 3">
-            </div>
-            <div class="gallery-item">
-                <img src="Policia/policia4.jpeg" alt="Polícia Militar-Go 4">
-            </div>
+    <footer>
+        <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/saintformaturas/" target="_blank">
+                <img src="logos das redes social/instagram.png" alt="Instagram">
+                <span class="tooltip">Instagram</span>
+            </a>
+            <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
+                <img src="logos das redes social/logo.png" alt="WhatsApp">
+                <span class="tooltip">WhatsApp</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
+                <img src="logos das redes social/facebook.png" alt="Facebook">
+                <span class="tooltip">Facebook</span>
+            </a>
         </div>
+    </footer>
 
-        <!-- Galeria Formandos Acadêmicos -->
-        <div class="gallery">
-            <h2>Formandos Acadêmicos:</h2>
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
-            <div class="gallery-item active">
-                <img src="Formando Academicos/formando1.jpeg" alt="Formando 1">
-            </div>
-            <div class="gallery-item">
-                <img src="Formando Academicos/formando2.jpeg" alt="Formando 2">
-            </div>
-            <div class="gallery-item">
-                <img src="Formando Academicos/formando8.jpeg" alt="Formando 3">
-            </div>
-            <div class="gallery-item">
-                <img src="Formando Academicos/formando4.jpeg" alt="Formando 4">
-            </div>
-            <div class="gallery-item">
-                <img src="Formando Academicos/formando5.jpeg" alt="Formando 5">
-            </div>
-            <div class="gallery-item">
-                <img src="Formando Academicos/formando6.jpeg" alt="Formando 6">
-            </div>
-            <div class="gallery-item">
-                <img src="Formando Academicos/formando10.jpeg" alt="Formando 7">
-            </div>
-        </div>
+    <script>
+        // Menu hambúrguer
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navLinks = document.querySelector('.nav-links');
 
-        <!-- Galeria Casamentos -->
-        <div class="gallery casamentos">
-            <h2>Casamentos:</h2>
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
-            <div class="gallery-item active">
-                <img src="Casamentos/casamento11.jpeg" alt="Casamento 1">
-            </div>
-            <div class="gallery-item">
-                <img src="Casamentos/casamento2.jpeg" alt="Casamento 2">
-            </div>
-            <div class="gallery-item">
-                <img src="Casamentos/casamento3.jpeg" alt="Casamento 3">
-            </div>
-            <div class="gallery-item">
-                <img src="Casamentos/casamento4.jpeg" alt="Casamento 4">
-            </div>
-            <div class="gallery-item">
-                <img src="Casamentos/casamento5.jpeg" alt="Casamento 5">
-            </div>
-            <div class="gallery-item">
-                <img src="Casamentos/casamento6.jpeg" alt="Casamento 6">
-            </div>
-            <div class="gallery-item">
-                <img src="Casamentos/casamento7.jpeg" alt="Casamento 7">
-            </div>
-            <div class="gallery-item">
-                <img src="Casamentos/casamento8.jpeg" alt="Casamento 8">
-            </div>
-        </div>
-
-        <!-- Galeria Decoração -->
-        <div class="gallery decoracao">
-            <h2>Decoração:</h2>
-            <button class="prev">&#10094;</button>
-            <button class="next">&#10095;</button>
-            <div class="gallery-item active">
-                <img src="decoração/decoraçao.jpeg" alt="Decoração 1">
-            </div>
-            <div class="gallery-item">
-                <img src="decoração/decoraçao2.jpeg" alt="Decoração 2">
-            </div>
-            <div class="gallery-item">
-                <img src="decoração/decoraçao3.jpeg" alt="Decoração 3">
-            </div>
-            <div class="gallery-item">
-                <img src="decoração/decoraçao4.jpeg" alt="Decoração 4">
-            </div>
-            <div class="gallery-item">
-                <img src="decoração/decoraçao5.jpeg" alt="Decoração 5">
-            </div>
-            <div class="gallery-item">
-                <img src="decoração/decoraçao6.jpeg" alt="Decoração 6">
-            </div>
-            <div class="gallery-item">
-                <img src="decoração/decoraçao7.jpeg" alt="Decoração 7">
-            </div>
-            <div class="gallery-item">
-                <img src="decoração/decoraçao8.jpeg" alt="Decoração 8">
-            </div>
-        </div>
-    </div>
-</div>
-
-<footer>
-    <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
-    <div class="social-icons">
-        <a href="https://www.instagram.com/saintformaturas/" target="_blank">
-            <img src="logos das redes social/instagram.png" alt="Instagram">
-            <span class="tooltip">Instagram</span>
-        </a>
-        <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
-            <img src="logos das redes social/logo.png" alt="WhatsApp">
-            <span class="tooltip">WhatsApp</span>
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
-            <img src="logos das redes social/facebook.png" alt="Facebook">
-            <span class="tooltip">Facebook</span>
-        </a>
-    </div>
-</footer>
-
-<script>
-    // Menu hambúrguer
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-
-    function toggleMenu() {
-        const menu = document.querySelector("nav ul");
-        menu.classList.toggle("active");
-    }
-    
-
-    document.querySelectorAll('.gallery').forEach(function (gallery) {
-        const items = gallery.querySelectorAll('.gallery-item');
-        let currentIndex = 0;
-        let autoChange = true;
-
-        // Função para alterar a imagem visível
-        function changeImage() {
-            items.forEach(item => item.classList.remove('active'));
-            items[currentIndex].classList.add('active');
+        function toggleMenu() {
+            navLinks.classList.toggle('active');
         }
+        
 
-        // Navegar para a próxima imagem
-        function nextImage() {
-            currentIndex = (currentIndex + 1) % items.length;
-            changeImage();
-        }
+        document.querySelectorAll('.gallery').forEach(function (gallery) {
+            const items = gallery.querySelectorAll('.gallery-item');
+            let currentIndex = 0;
+            let autoChange = true;
 
-        // Navegar para a imagem anterior
-        function prevImage() {
-            currentIndex = (currentIndex - 1 + items.length) % items.length;
-            changeImage();
-        }
+            // Função para alterar a imagem visível
+            function changeImage() {
+                items.forEach(item => item.classList.remove('active'));
+                items[currentIndex].classList.add('active');
+            }
 
-        // Ações de clique
-        gallery.querySelector('.next').addEventListener('click', nextImage);
-        gallery.querySelector('.prev').addEventListener('click', prevImage);
+            // Navegação anterior
+            gallery.querySelector('.prev').addEventListener('click', function () {
+                currentIndex = (currentIndex - 1 + items.length) % items.length;
+                changeImage();
+            });
 
-        // Trocar imagens automaticamente
-        setInterval(() => {
-            if (autoChange) nextImage();
-        }, 4000); // 4 segundos de intervalo
+            // Navegação próxima
+            gallery.querySelector('.next').addEventListener('click', function () {
+                currentIndex = (currentIndex + 1) % items.length;
+                changeImage();
+            });
 
-        // Iniciar com a primeira imagem visível
-        changeImage();
-    });
-</script>
-
+            // Configuração de navegação automática
+            if (autoChange) {
+                setInterval(function () {
+                    currentIndex = (currentIndex + 1) % items.length;
+                    changeImage();
+                }, 3000); // A cada 3 segundos
+            }
+        });
+    </script>
 </body>
 </html>

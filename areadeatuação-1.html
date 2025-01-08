@@ -8,15 +8,419 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.33.0/css/blueimp-gallery.min.css">
-    <!-- CSS externo -->
-    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Estilo básico de imagem */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Corpo da página */
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            color: #333;
+            line-height: 1.8;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            background-color: #edd0d0;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+
+        /* Navegação */
+        nav {
+            background-color: rgba(136, 14, 79, 0.9);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        /* Logo da navegação */
+        nav .logo {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        /* Menu de navegação */
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        /* Itens do menu */
+        nav ul li {
+            display: inline-block;
+        }
+
+        /* Links de navegação */
+        nav ul li a {
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #c2185b;
+        }
+
+        /* Estilos para o ícone de hambúrguer */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .menu-toggle .bar {
+            width: 30px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        /* Responsividade para telas pequenas */
+        @media (max-width: 768px) {
+            /* Esconde o menu na versão padrão */
+            #nav-list {
+                display: none;
+            }
+
+            #nav-list.active {
+                display: block;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+                background-color: rgba(136, 14, 79, 0.9);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                padding: 1rem 0;
+                z-index: 9;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                display: none;
+            }
+
+            nav ul li a {
+                font-size: 1.5rem;
+                padding: 1rem;
+                text-align: center;
+                width: 100%;
+            }
+
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
+
+            header h1 {
+                font-size: 2rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #880e4f;
+            text-align: center;
+            padding: 2rem 0;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.5rem;
+        }
+
+        /* Corpo principal */
+        main {
+            flex: 1;
+            padding: 2rem;
+            text-align: center;
+            background-color: #edd0d0;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Texto principal */
+        main p {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #880e4f;
+            color: #fff;
+            text-align: center;
+            padding: 1rem;
+            margin-top: auto;
+        }
+
+        /* Links no rodapé */
+        footer a {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        footer a:hover {
+            color: #c2185b;
+        }
+
+        /* Galeria de fotos */
+        .photo-gallery {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            margin: 2px 0;
+        }
+
+        .photo-gallery img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
+
+        /* Texto sobre a imagem */
+        .intro-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(11, 9, 9, 0.6);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        /* Estilos para os ícones sociais */
+        .social-icons {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            margin: 0 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Tooltip para os ícones sociais */
+        .social-icons a {
+            position: relative;
+            display: inline-block;
+        }
+
+        .social-icons a .tooltip {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            top: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 14px;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-icons a:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+
+        /* Link fixo no canto inferior direito */
+        .contact-link {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #880e4f;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            z-index: 1000;
+        }
+
+        .contact-link:hover {
+            background-color: #c2185b;
+        }
+
+        /* Layout para as Áreas de Atuação (Imagem à Esquerda e Texto à Direita) */
+        .area-content {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            align-items: center;
+            justify-content: space-between;
+            padding: 2rem;
+            flex-wrap: wrap;
+        }
+
+        /* Estilos para a imagem */
+        .area-content img {
+            max-width: 190%;
+            height: auto;
+            border-radius: 108px;
+        }
+
+        /* Estilos para o texto */
+        .area-text {
+            flex: 1;
+            max-width: 500%;
+        }
+
+        .area-text h2 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .area-text p {
+            font-size: 1.3rem;
+            line-height: 1.9;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            .area-content {
+                flex-direction: column;
+                align-items: center;
+                grid-template-columns: 1fr;
+            }
+
+            .area-content img {
+                width: 60%;
+            }
+
+            .area-text {
+                max-width: 100%;
+            }
+        }
+
+        /* Seção sobre a empresa - Centralização e Responsividade */
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Título principal da seção */
+        .about-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #880e4f;
+        }
+
+        /* Subtítulos da seção */
+        .about-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            color: #880e4f;
+        }
+
+        /* Parágrafo de descrição */
+        .about-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+            color: #555;
+        }
+
+        /* Imagem da seção sobre a empresa */
+        .about-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 18px;
+        }
+
+        /* Ajustes para telas pequenas */
+        @media (max-width: 768px) {
+            .about-content h2 {
+                font-size: 2rem;
+            }
+
+            .about-content h3 {
+                font-size: 1.5rem;
+            }
+
+            .about-content p {
+                font-size: 1.1rem;
+            }
+        }
+
+    </style>
 </head>
 <body>
 
     <!-- Navegação -->
     <nav>
         <div class="logo">Saint Formaturas e Eventos</div>
-        <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">☰
+        <div class="menu-toggle" id="menu-toggle" onclick="toggleMenu()">
             <span class="bar"></span>
             <span class="bar"></span>
             <span class="bar"></span>
@@ -75,8 +479,8 @@
 
     <script>
         function toggleMenu() {
-        const menu = document.querySelector("nav ul");
-        menu.classList.toggle("active");
+            const menu = document.querySelector('#nav-list');
+            menu.classList.toggle('active');
         }
     </script>
 </body>
