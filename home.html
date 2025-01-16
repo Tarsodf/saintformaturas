@@ -1,149 +1,126 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saint Formaturas e Eventos</title>
+    <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Saint Formaturas e Eventos</title>
 
-    <!-- Font Awesome para ícones -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <!-- Google Fonts (Roboto) -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-    <!-- Favicon -->
-    <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
-    <!-- CSS externo -->
-    <link rel="stylesheet" href="css/style.css">
-    <style>
-        /* Menu hambúrguer */
-        @media screen and (max-width: 768px) {
-            #nav-list {
-                display: none;
-                flex-direction: column;
-                position: fixed;
-                top: 60px;
-                right: 20px;
-                background-color: #f6f2f2;
-                border-radius: 5px;
-                padding: 20px;
-            }
+        <!-- Font Awesome para ícones -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        <!-- Google Fonts (Roboto) -->
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+        <!-- Favicon -->
+        <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
+        <!-- CSS externo -->
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
 
-            #nav-list.active {
-                display: flex;
-            }
+        <!-- Navegação -->
+        <nav>
+            <div class="logo">Saint Formaturas e Eventos</div>
+            
+            <!-- Ícone do menu hambúrguer -->
+            <div id="burguer" class="fas fa-bars menu-toggle" onclick="toggleMenu()"></div>
 
-            #nav-list li {
-                margin: 10px 0;
-                text-align: right;
-            }
-        }
-    </style>
-</head>
-<body>
+            <!-- Lista de navegação -->
+            <ul id="nav-list">
+                <li><a href="home.html">HOME</a></li>
+                <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
+                <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
+                <li><a href="clientes-1.html">CLIENTES</a></li>
+                <li><a href="fotoseventos-1.html">FOTOS DE EVENTOS</a></li>
+                <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
+            </ul>
+        </nav>
 
-    <!-- Navegação -->
-    <nav style="position: relative;">
-        <div class="logo">Saint Formaturas e Eventos</div>
-        <!-- Ícone do menu hamburguer -->
-        <div id="burguer" class="fas fa-bars menu-toggle" onclick="toggleMenu()"></div>
-        
-        <!-- Lista de navegação -->
-        <ul id="nav-list">
-            <li><a href="home.html">HOME</a></li>
-            <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
-            <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
-            <li><a href="clientes-1.html">CLIENTES</a></li>
-            <li><a href="fotoseventos-1.html">FOTOS DE EVENTOS</a></li>
-            <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
-        </ul>
-    </nav>
+        <!-- Cabeçalho -->
+        <header>
+            <h1>Saint Formaturas e Eventos</h1>
+            <p><strong>Experiência em Superar Expectativas!</strong></p>
+        </header>
 
-    <!-- Cabeçalho -->
-    <header>
-        <h1>Saint Formaturas e Eventos</h1>
-        <p><strong>Experiência em Superar Expectativas!</strong></p>
-    </header>
+        <!-- Conteúdo Principal -->
+        <main>
+            <section class="photo-gallery">
+                <img src="fotos de 5minutos/casamento11.jpeg" alt="Casamento 1">
+                <img src="Casamentos/casamento9 (1).jpeg" alt="Casamento 2">
+                <img src="fotos de 5minutos/noiva.jpeg" alt="Noiva">
+                <div class="intro-text">
+                    <h2>BEM-VINDO À SAINT FORMATURAS E EVENTOS</h2>
+                    A Saint Formaturas e Eventos é uma empresa referência na organização de eventos exclusivos, com uma especialização em formaturas e celebrações de grande porte. Nosso compromisso é proporcionar uma experiência única, cuidando de cada detalhe com excelência.
+                    Contamos com uma equipe altamente qualificada e uma rede de fornecedores de confiança, garantindo soluções inovadoras e personalizadas para tornar o seu evento inesquecível.
+                </div>
+            </section>
+        </main>
 
-    <!-- Conteúdo Principal -->
-    <main>
-        <section class="photo-gallery">
-            <img src="fotos de 5minutos/casamento11.jpeg" alt="Casamento 1">
-            <img src="Casamentos/casamento9 (1).jpeg" alt="Casamento 2">
-            <img src="fotos de 5minutos/noiva.jpeg" alt="Noiva">
-            <div class="intro-text">
-                <h2>BEM-VINDO À SAINT FORMATURAS E EVENTOS</h2>
-                A Saint Formaturas e Eventos é uma empresa referência na organização de eventos exclusivos, com uma especialização em formaturas e celebrações de grande porte. Nosso compromisso é proporcionar uma experiência única, cuidando de cada detalhe com excelência.
-                Contamos com uma equipe altamente qualificada e uma rede de fornecedores de confiança, garantindo soluções inovadoras e personalizadas para tornar o seu evento inesquecível.
+        <!-- Rodapé -->
+        <footer>
+            <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
+            <div class="social-icons">
+                <a href="https://www.instagram.com/saintformaturas/" target="_blank">
+                    <img src="logos das redes social/instagram.png" alt="Instagram">
+                    <span class="tooltip">Instagram</span>
+                </a>
+                <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
+                    <img src="logos das redes social/logo.png" alt="WhatsApp">
+                    <span class="tooltip">WhatsApp</span>
+                </a>
+                <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
+                    <img src="logos das redes social/facebook.png" alt="Facebook">
+                    <span class="tooltip">Facebook</span>
+                </a>
             </div>
-        </section>
-    </main>
+        </footer>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
-        <div class="social-icons">
-            <a href="https://www.instagram.com/saintformaturas/" target="_blank">
-                <img src="logos das redes social/instagram.png" alt="Instagram">
-                <span class="tooltip">Instagram</span>
-            </a>
-            <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
-                <img src="logos das redes social/logo.png" alt="WhatsApp">
-                <span class="tooltip">WhatsApp</span>
-            </a>
-            <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
-                <img src="logos das redes social/facebook.png" alt="Facebook">
-                <span class="tooltip">Facebook</span>
-            </a>
-        </div>
-    </footer>
+        <!-- Script para manipulação do menu -->
+        <script>
+            // Função para alternar a visibilidade do menu
+            function toggleMenu() {
+                const menu = document.querySelector('#nav-list');
+                menu.classList.toggle('active');
+            }
+        </script>
 
-    <!-- Script para manipulação do menu -->
-    <script>
-        // Função para alternar a visibilidade do menu
-        function toggleMenu() {
-            const menu = document.querySelector('#nav-list'); // Alterei para '#nav-list'
-            menu.classList.toggle('active');
-        }
-    </script>
+        <!-- Scripts adicionais -->
+        <script>
+            const images = [
+                'fotos de 5minutos/noiva.jpeg',
+                'fotos de 5minutos/casamento6.jpeg'
+            ];
 
-    <!-- Scripts adicionais -->
-    <script>
-        const images = [
-            'fotos de 5minutos/noiva.jpeg',
-            'fotos de 5minutos/casamento6.jpeg'
-        ];
+            let currentIndex = 0;
 
-        let currentIndex = 0;
+            function changeBackgroundImage() {
+                const imageUrl = images[currentIndex];
+                const img = new Image();
 
-        function changeBackgroundImage() {
-            const imageUrl = images[currentIndex];
-            const img = new Image();
+                img.onload = function() {
+                    document.body.style.backgroundImage = `url('${imageUrl}')`;
+                };
 
-            img.onload = function() {
-                document.body.style.backgroundImage = `url('${imageUrl}')`;
-            };
+                img.onerror = function() {
+                    console.error(`Erro ao carregar a imagem: ${imageUrl}`);
+                };
 
-            img.onerror = function() {
-                console.error(`Erro ao carregar a imagem: ${imageUrl}`);
-            };
+                img.src = imageUrl;
+                currentIndex = (currentIndex + 1) % images.length;
+            }
 
-            img.src = imageUrl;
-            currentIndex = (currentIndex + 1) % images.length;
-        }
+            setInterval(changeBackgroundImage, 300000);
+            changeBackgroundImage();
 
-        setInterval(changeBackgroundImage, 300000);
-        changeBackgroundImage();
+            let photoIndex = 0;
 
-        let photoIndex = 0;
+            function showNextPhoto() {
+                const photos = document.querySelectorAll('.photo-gallery img');
+                photos.forEach(photo => photo.style.opacity = 0);
+                photos[photoIndex].style.opacity = 1;
+                photoIndex = (photoIndex + 1) % photos.length;
+            }
 
-        function showNextPhoto() {
-            const photos = document.querySelectorAll('.photo-gallery img');
-            photos.forEach(photo => photo.style.opacity = 0);
-            photos[photoIndex].style.opacity = 1;
-            photoIndex = (photoIndex + 1) % photos.length;
-        }
-
-        setInterval(showNextPhoto, 5000);
-        showNextPhoto();
-    </script>
-</body>
-</html>
+            setInterval(showNextPhoto, 5000);
+            showNextPhoto();
+        </script>
+    </body>
+    </html>

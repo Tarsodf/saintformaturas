@@ -52,10 +52,7 @@ nav ul {
     list-style: none;
     display: flex;
     gap: 20px;
-<<<<<<< HEAD
-=======
     margin-left: auto;  /* Alinha os itens à direita por padrão */
->>>>>>> 28233e7 (Primeiro commit com todos os arquivos)
 }
 
 /* Itens do menu */
@@ -78,14 +75,6 @@ nav ul li a:hover {
 
 /* Estilos para o ícone de hambúrguer */
 .menu-toggle {
-<<<<<<< HEAD
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 5px;
-}
-
-=======
     position: absolute; /* Permite posicionamento em relação ao elemento pai */
     right: 20px; /* Ajuste para mover o ícone horizontalmente */
     top: 50%; /* Centraliza verticalmente no contêiner */
@@ -96,11 +85,8 @@ nav ul li a:hover {
     gap: 5px;
     color: #fff;
     display: none; /* Esconde o ícone por padrão */
-    
 }
 
-
->>>>>>> 28233e7 (Primeiro commit com todos os arquivos)
 .menu-toggle .bar {
     width: 30px;
     height: 4px;
@@ -116,13 +102,9 @@ nav ul li a:hover {
     }
 
     #nav-list.active {
-        display: block;
+        display: flex;
         flex-direction: column;
-<<<<<<< HEAD
-        align-items: center;
-=======
         align-items: flex-start; /* Alinha os itens à esquerda */
->>>>>>> 28233e7 (Primeiro commit com todos os arquivos)
         gap: 10px;
         background-color: rgba(136, 14, 79, 0.9);
         position: absolute;
@@ -144,11 +126,7 @@ nav ul li a:hover {
     nav ul li a {
         font-size: 1.5rem;
         padding: 1rem;
-<<<<<<< HEAD
-        text-align: center;
-=======
         text-align: left; /* Alinha os links à esquerda */
->>>>>>> 28233e7 (Primeiro commit com todos os arquivos)
         width: 100%;
     }
 
@@ -159,11 +137,7 @@ nav ul li a:hover {
 
     nav ul {
         flex-direction: column;
-<<<<<<< HEAD
-        align-items: center;
-=======
         align-items: flex-start;  /* Alinha os itens à esquerda */
->>>>>>> 28233e7 (Primeiro commit com todos os arquivos)
         gap: 10px;
     }
 
@@ -182,11 +156,7 @@ nav ul li a:hover {
     }
 
     nav ul li a {
-<<<<<<< HEAD
-        font-size: 1rem;
-=======
         font-size: 1.2rem;
->>>>>>> 28233e7 (Primeiro commit com todos os arquivos)
     }
 
     header h1 {
