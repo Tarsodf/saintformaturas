@@ -157,18 +157,25 @@
                 flex-direction: column;
                 width: 100%;
                 background-color: rgba(136, 14, 79, 0.9);
+                position: absolute;
+                top: 60px;
+                left: 0;
             }
             nav ul.active {
                 display: flex;
             }
             nav ul li a {
-                text-align: center;
-                padding: 1rem;
-                font-size: 1rem;
-                border-bottom: 1px solid #c2185b;
-            }
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
             .menu-toggle {
                 display: flex;
+                position: absolute;
+                right: 20px;
+                top: 20px;
             }
             .gallery-container {
                 padding: 0 1rem;
@@ -200,6 +207,7 @@
 <body>
 <nav>
     <div class="logo">Saint Formaturas e Eventos</div>
+    <!-- Ícone de Menu Hambúrguer, posicionado à direita -->
     <div class="menu-toggle" onclick="toggleMenu()">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -264,10 +272,11 @@
         </a>
     </div>
 </footer>
+<!-- Script para manipulação do menu -->
 <script>
     function toggleMenu() {
-        const menu = document.querySelector("#nav-list");
-        menu.classList.toggle("active");
+        const menu = document.querySelector('#nav-list');
+        menu.classList.toggle('active');
     }
 </script>
 </body>

@@ -7,34 +7,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.33.0/css/blueimp-gallery.min.css">
-    <!-- CSS externo -->
-    <link rel="stylesheet" href="css/style.css">
-
-    <!-- Adicionando CSS para o menu hambúrguer -->
     <style>
-        /* Estilo do menu hambúrguer */
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            padding: 10px;
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
         }
 
-        .menu-toggle .bar {
-            width: 25px;
-            height: 3px;
-            background-color: #fff;
-            margin: 4px 0;
-        }
-
-        /* Estilo do menu de navegação */
-        nav {
+        /* Corpo da página */
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            color: #333;
+            line-height: 1.8;
+            margin: 0;
             display: flex;
-            justify-content: space-between;  /* Logo à esquerda e menu à direita */
-            align-items: center;
-            padding: 1rem 2rem;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #edd0d0;
+        }
+
+        /* Navegação */
+        nav {
             background-color: rgba(136, 14, 79, 0.9);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
         }
 
         nav .logo {
@@ -43,12 +44,10 @@
             font-weight: bold;
         }
 
-        /* Menu de navegação */
         nav ul {
             list-style: none;
             display: flex;
             gap: 20px;
-            margin-left: auto;  /* Alinha o menu à direita */
         }
 
         nav ul li {
@@ -67,38 +66,168 @@
             background-color: #c2185b;
         }
 
-        /* Exibir o ícone do menu hambúrguer em telas menores */
-        @media screen and (max-width: 768px) {
-            .menu-toggle {
+        nav .hamburger-menu {
+            display: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                flex-direction: column;
+                background-color: rgba(136, 14, 79, 0.9);
+                width: 100%;
+                display: none;
+            }
+
+            /* Ajustes para telas pequenas (como celulares) */
+        @media (max-width: 768px) {
+            .area-content img {
+                 max-width: 100%; /* A imagem ocupará 90% da largura disponível */
+                height: auto; /* Altura ajustada automaticamente */
+                border-radius: 10px; /* Arredondamento das bordas */
+    }
+}
+
+            nav ul.active {
                 display: flex;
             }
 
-            #nav-list {
-                display: none;
-                width: 100%;
-                position: absolute;
-                top: 60px;
-                left: 0;
-                background-color: #880e4f;
-                text-align: center;
-                z-index: 999;
-            }
-
-            #nav-list.active {
+            nav .hamburger-menu {
                 display: block;
             }
-
-            #nav-list li {
-                padding: 15px;
-                margin: 0;
-            }
-
-            #nav-list li a {
-                color: #fff;
-                text-decoration: none;
-                font-size: 18px;
-            }
         }
+
+        /* Cabeçalho */
+        header {
+            background-color: #880e4f;
+            text-align: center;
+            padding: 2rem 0;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+            
+        }
+
+        /* Conteúdo principal */
+        .container {
+            flex: 10px;
+            padding: 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .area-text p {
+            font-size: 1.2rem; /* Aumenta o tamanho do texto do parágrafo */
+            line-height: 1.8; /* Melhora o espaçamento entre as linhas */
+            margin-bottom: 1rem; /* Adiciona espaço abaixo do parágrafo */
+            color: #555; /* Ajusta a cor para maior legibilidade */
+        }
+
+        .area-text ul li {
+         font-size: 1.2rem; /* Aumenta o tamanho do texto da lista */
+         line-height: 1.8; /* Melhora o espaçamento entre os itens da lista */
+         margin-bottom: 0.8rem; /* Adiciona espaço entre os itens da lista */
+        color: #555; /* Ajusta a cor para combinar com o parágrafo */
+    }
+
+
+        .area-content img {
+            max-width: 70%; /* Define um limite máximo de largura */
+            height: auto; /* Mantém a proporção da imagem */
+            border-radius: 100px; /* Bordas arredondadas */
+            flex: 1; /* Flexível dentro do contêiner */
+            object-fit: cover; /* Ajusta o conteúdo para preencher a área */
+}
+
+        .area-content img {
+            max-width: 70%; /* Diminui o tamanho da imagem */
+            height: auto;
+            border-radius: 100px;
+            flex: 1;
+            object-fit: cover;
+        }
+
+        .area-text {
+            text-align: left;
+            flex: 2;
+        }
+
+        .area-text h2 {
+            text-align: center; /* Centraliza o texto horizontalmente */
+             margin-bottom: 1rem; /* Espaço abaixo do título */
+            font-size: 2.5rem; /* Ajuste o tamanho do título, se necessário */
+            font-weight: bold; /* Dá ênfase ao título */
+            color: #333; /* Cor do texto */
+}
+
+
+        .area-text ul li {
+            margin-bottom: 1rem;
+        }
+
+        /* Rodapé */
+        footer {
+            background-color: #880e4f;
+            color: #fff;
+            text-align: center;
+            padding: 0.5rem; /* Reduzido */
+            margin-top: auto;
+        }
+
+        footer .social-icons {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        footer .social-icons a {
+            position: relative;
+            text-align: center;
+        }
+
+        footer .social-icons img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        footer .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        /* Tooltip */
+        footer .social-icons a span {
+            visibility: hidden;
+            opacity: 0;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 0.9rem;
+            white-space: nowrap;
+            transition: opacity 0.3s ease;
+        }
+
+        footer .social-icons a:hover span {
+            visibility: visible;
+            opacity: 1;
+        }
+
     </style>
 </head>
 <body>
@@ -106,11 +235,8 @@
     <!-- Navegação -->
     <nav>
         <div class="logo">Saint Formaturas e Eventos</div>
-        <!-- Ícone do menu hambúrguer -->
-            <div id="burguer" class="fas fa-bars menu-toggle" onclick="toggleMenu()"></div>
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
         </div>
         <ul id="nav-list">
             <li><a href="home.html">HOME</a></li>
@@ -123,7 +249,7 @@
     </nav>
 
     <!-- Cabeçalho -->
-    <header class="header">
+    <header>
         <h1>Área de Atuação</h1>
     </header>
 
@@ -147,7 +273,7 @@
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
+        <p>© 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
         <div class="social-icons">
             <a href="https://www.instagram.com/saintformaturas/" target="_blank">
                 <img src="logos das redes social/instagram.png" alt="Instagram">

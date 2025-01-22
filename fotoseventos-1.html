@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Área de Atuação - Saint Formaturas e Eventos</title>
+    <title>Fotos de Eventos - Saint Formaturas e Eventos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.33.0/css/blueimp-gallery.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     
     <style>
         * {
@@ -45,6 +44,64 @@
             list-style: none;
             display: flex;
             gap: 15px;
+            justify-content: center;
+        }
+
+        .menu-toggle {
+            position: absolute;
+            right: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            color: #fff;
+            display: none;
+        }
+
+        .menu-toggle .bar {
+            width: 30px;
+            height: 4px;
+            background-color: #fff;
+            border-radius: 5px;
+        }
+
+        /* Responsividade para telas pequenas */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+            }
+
+            nav ul.active {
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                background-color: rgba(136, 14, 79, 0.9);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                right: 0;
+                padding: 1rem 0;
+                z-index: 9;
+            }
+
+            nav {
+                flex-direction: column;
+                padding: 1rem;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul li a {
+                font-size: 1.5rem;
+                padding: 1rem;
+                text-align: left;
+                width: 100%;
+            }
         }
 
         nav ul li a {
@@ -57,31 +114,6 @@
 
         nav ul li a:hover {
             background-color: #c2185b;
-        }
-
-        .menu-toggle {
-            display: none;
-            font-size: 2rem;
-            color: #fff;
-            cursor: pointer;
-        }
-
-        .nav-links {
-            display: flex;
-        }
-
-        .nav-links.active {
-            display: block;
-            position: absolute;
-            top: 60px;
-            right: 0;
-            background-color: rgba(136, 14, 79, 0.9);
-            width: 100%;
-            text-align: center;
-        }
-
-        .nav-links li {
-            margin: 10px 0;
         }
 
         .header {
@@ -229,8 +261,10 @@
             }
 
             nav ul {
-                flex-direction: column;
-                align-items: center;
+                list-style: none;
+                display: flex;
+                gap: 15px;
+                justify-content: center;
             }
 
             nav ul li {
@@ -293,10 +327,8 @@
 
     <nav>
         <div class="logo">Saint Formaturas e Eventos</div>
-        <div class="menu-toggle" onclick="toggleMenu()">
-            <i class="fas fa-bars"></i>
-        </div>
-        <ul class="nav-links">
+        <div id="burguer" class="fas fa-bars menu-toggle" onclick="toggleMenu()"></div>
+        <ul id="nav-list">
             <li><a href="home.html">HOME</a></li>
             <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
             <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
@@ -338,56 +370,35 @@
                 <button class="prev">&#10094;</button>
                 <button class="next">&#10095;</button>
                 <div class="gallery-item active">
-                    <img src="Formando Academicos/formando1.jpeg" alt="Formando 1">
+                    <img src="Formando Academicos/formando1.jpeg" alt="Formandos Acadêmicos 1">
                 </div>
                 <div class="gallery-item">
-                    <img src="Formando Academicos/formando2.jpeg" alt="Formando 2">
+                    <img src="Formando Academicos/formando10.jpeg" alt="Formandos Acadêmicos 2">
                 </div>
                 <div class="gallery-item">
-                    <img src="Formando Academicos/formando8.jpeg" alt="Formando 3">
+                    <img src="Formando Academicos/formando2.jpeg" alt="Formandos Acadêmicos 3">
                 </div>
                 <div class="gallery-item">
-                    <img src="Formando Academicos/formando4.jpeg" alt="Formando 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="Formando Academicos/formando5.jpeg" alt="Formando 5">
-                </div>
-                <div class="gallery-item">
-                    <img src="Formando Academicos/formando6.jpeg" alt="Formando 6">
-                </div>
-                <div class="gallery-item">
-                    <img src="Formando Academicos/formando10.jpeg" alt="Formando 7">
+                    <img src="Formando Academicos/formando4.jpeg" alt="Formandos Acadêmicos 4">
                 </div>
             </div>
 
             <!-- Galeria Casamentos -->
-            <div class="gallery casamentos">
+            <div class="gallery">
                 <h2>Casamentos:</h2>
                 <button class="prev">&#10094;</button>
                 <button class="next">&#10095;</button>
                 <div class="gallery-item active">
-                    <img src="Casamentos/casamento11.jpeg" alt="Casamento 1">
+                    <img src="casamentos/casamento1.jpeg" alt="Casamento 1">
                 </div>
                 <div class="gallery-item">
-                    <img src="Casamentos/casamento2.jpeg" alt="Casamento 2">
+                    <img src="casamentos/casamento2.jpeg" alt="Casamento 2">
                 </div>
                 <div class="gallery-item">
-                    <img src="Casamentos/casamento3.jpeg" alt="Casamento 3">
+                    <img src="casamentos/casamento3.jpeg" alt="Casamento 3">
                 </div>
                 <div class="gallery-item">
-                    <img src="Casamentos/casamento4.jpeg" alt="Casamento 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="Casamentos/casamento5.jpeg" alt="Casamento 5">
-                </div>
-                <div class="gallery-item">
-                    <img src="Casamentos/casamento6.jpeg" alt="Casamento 6">
-                </div>
-                <div class="gallery-item">
-                    <img src="Casamentos/casamento7.jpeg" alt="Casamento 7">
-                </div>
-                <div class="gallery-item">
-                    <img src="Casamentos/casamento8.jpeg" alt="Casamento 8">
+                    <img src="casamentos/casamento4.jpeg" alt="Casamento 4">
                 </div>
             </div>
 
@@ -424,6 +435,27 @@
         </div>
     </div>
 
+
+
+            <!-- Galeria Videos -->
+            <div class="gallery">
+                <h2>Videos:</h2>
+                <div class="gallery-item active">
+                    <img src="fotos de 5minutos/" alt="Video 1">
+                </div>
+                <div class="gallery-item">
+                    <img src="" alt="Video 2">
+                </div>
+                <div class="gallery-item">
+                    <img src="" alt="Video 3">
+                </div>
+                <div class="gallery-item">
+                    <img src="" alt="Video 4">
+                </div>
+            </div>
+
+
+
     <footer>
         <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
         <div class="social-icons">
@@ -443,19 +475,18 @@
     </footer>
 
     <script>
-        // Menu hambúrguer
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
-
         function toggleMenu() {
-            navLinks.classList.toggle('active');
+            let navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
         }
-        
 
-        document.querySelectorAll('.gallery').forEach(function (gallery) {
-            const items = gallery.querySelectorAll('.gallery-item');
+        // Função para alterar a imagem visível
+        let currentIndex = 0;
+        let autoChange = true;
+        let galleries = document.querySelectorAll('.gallery');
+        galleries.forEach(gallery => {
+            let items = gallery.querySelectorAll('.gallery-item');
             let currentIndex = 0;
-            let autoChange = true;
 
             // Função para alterar a imagem visível
             function changeImage() {
@@ -480,7 +511,7 @@
                 setInterval(function () {
                     currentIndex = (currentIndex + 1) % items.length;
                     changeImage();
-                }, 3000); // A cada 3 segundos
+                }, 3000);
             }
         });
     </script>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOBRE NÓS - Saint Formaturas e Eventos</title>
+    <title>Sobre Nós - Saint Formaturas e Eventos</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
@@ -25,36 +25,89 @@
             min-height: 100vh;
         }
 
-        nav {
-            background-color: rgba(136, 14, 79, 0.9);
-            padding: 1rem 2rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
+        /* Configurações do menu */
+nav {
+    background-color: rgba(136, 14, 79, 0.9);
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
 
-        nav .logo {
-            color: #fff;
-            font-size: 1.6rem;
-            font-weight: bold;
-        }
+nav .logo {
+    color: #fff;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 20px;
-        }
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
 
-        nav ul li a {
-            color: #fff;
-            font-size: 1.2rem;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-        }
+nav ul li {
+    display: inline-block;
+}
+
+nav ul li a {
+    color: #fff;
+    font-size: 1.2rem;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+}
+
+nav ul li a:hover {
+    background-color: #c2185b;
+}
+
+/* Botão do menu hamburger */
+nav .hamburger-menu {
+    display: none;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Configuração para mobile */
+@media (max-width: 768px) {
+    nav .hamburger-menu {
+        display: block;
+    }
+
+    nav .hamburger-menu i {
+        color: #fff; /* Cor branca */
+    }
+
+    nav ul {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        flex-direction: column;
+        background-color: rgba(136, 14, 79, 0.9);
+        width: 100%;
+        display: none; /* Escondido por padrão */
+    }
+
+    nav ul.active {
+        display: flex; /* Mostra o menu ao ativar */
+    }
+
+    nav ul li {
+        text-align: left;
+        width: 100%;
+    }
+
+    nav ul li a {
+        font-size: 1.5rem;
+        padding: 1rem;
+        text-align: left;
+        width: 100%;
+    }
+}
+
 
         nav ul li a:hover {
             background-color: #c2185b;
@@ -239,8 +292,8 @@
 
 <nav>
     <div class="logo">Saint Formaturas e Eventos</div>
-    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
-    <ul>
+    <div id="burguer" class="fas fa-bars menu-toggle" onclick="toggleMenu()"></div>
+        <ul id="nav-list">
         <li><a href="home.html">HOME</a></li>
         <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
         <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
@@ -304,11 +357,13 @@
     </div>
 </footer>
 
-<script>
+    <!-- Script para manipulação do menu -->
+    <script>
     function toggleMenu() {
-        const menu = document.querySelector("nav ul");
-        menu.classList.toggle("active");
-    }
+    const navList = document.getElementById('nav-list');
+    navList.classList.toggle('active'); // Adiciona ou remove a classe "active"
+}
+
 </script>
 
 </body>

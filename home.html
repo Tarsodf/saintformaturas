@@ -1,126 +1,308 @@
-    <!DOCTYPE html>
-    <html lang="pt-BR">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Saint Formaturas e Eventos</title>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saint Formaturas e Eventos</title>
 
-        <!-- Font Awesome para ícones -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <!-- Google Fonts (Roboto) -->
-        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
-        <!-- Favicon -->
-        <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
-        <!-- CSS externo -->
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-    <body>
+    <!-- Font Awesome para ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts (Roboto) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
+    
+    <!-- Estilos CSS -->
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-        <!-- Navegação -->
-        <nav>
-            <div class="logo">Saint Formaturas e Eventos</div>
-            
-            <!-- Ícone do menu hambúrguer -->
-            <div id="burguer" class="fas fa-bars menu-toggle" onclick="toggleMenu()"></div>
+        body {
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            color: #333;
+            line-height: 1.8;
+            margin: 0;
+            min-height: 100vh;
+            background-color: #edd0d0;
+            display: flex;
+            flex-direction: column;
+        }
 
-            <!-- Lista de navegação -->
-            <ul id="nav-list">
-                <li><a href="home.html">HOME</a></li>
-                <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
-                <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
-                <li><a href="clientes-1.html">CLIENTES</a></li>
-                <li><a href="fotoseventos-1.html">FOTOS DE EVENTOS</a></li>
-                <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
-            </ul>
-        </nav>
+        /* Navegação */
+        nav {
+            background-color: rgba(136, 14, 79, 0.9);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
 
-        <!-- Cabeçalho -->
-        <header>
-            <h1>Saint Formaturas e Eventos</h1>
-            <p><strong>Experiência em Superar Expectativas!</strong></p>
-        </header>
+        nav .logo {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
 
-        <!-- Conteúdo Principal -->
-        <main>
-            <section class="photo-gallery">
-                <img src="fotos de 5minutos/casamento11.jpeg" alt="Casamento 1">
-                <img src="Casamentos/casamento9 (1).jpeg" alt="Casamento 2">
-                <img src="fotos de 5minutos/noiva.jpeg" alt="Noiva">
-                <div class="intro-text">
-                    <h2>BEM-VINDO À SAINT FORMATURAS E EVENTOS</h2>
-                    A Saint Formaturas e Eventos é uma empresa referência na organização de eventos exclusivos, com uma especialização em formaturas e celebrações de grande porte. Nosso compromisso é proporcionar uma experiência única, cuidando de cada detalhe com excelência.
-                    Contamos com uma equipe altamente qualificada e uma rede de fornecedores de confiança, garantindo soluções inovadoras e personalizadas para tornar o seu evento inesquecível.
-                </div>
-            </section>
-        </main>
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
 
-        <!-- Rodapé -->
-        <footer>
-            <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
-            <div class="social-icons">
-                <a href="https://www.instagram.com/saintformaturas/" target="_blank">
-                    <img src="logos das redes social/instagram.png" alt="Instagram">
-                    <span class="tooltip">Instagram</span>
-                </a>
-                <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
-                    <img src="logos das redes social/logo.png" alt="WhatsApp">
-                    <span class="tooltip">WhatsApp</span>
-                </a>
-                <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
-                    <img src="logos das redes social/facebook.png" alt="Facebook">
-                    <span class="tooltip">Facebook</span>
-                </a>
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #c2185b;
+        }
+
+        nav .hamburger-menu {
+            display: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        @media (max-width: 768px) {
+            nav .hamburger-menu {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                background-color: rgba(136, 14, 79, 0.9);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding-left: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            nav ul li {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        header {
+            background-color: #880e4f;
+            text-align: center;
+            padding: 2rem 0;
+            color: #fff;
+        }
+
+        header h1 {
+            font-size: 3rem;
+        }
+
+        header p {
+            font-size: 1.5rem;
+        }
+
+        main {
+            flex: 1;
+            padding: 2rem;
+        }
+
+        .photo-gallery {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .photo-gallery img {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            z-index: 0;
+            transition: opacity 1s ease, z-index 0s 1s;
+        }
+
+        .photo-gallery img.visible {
+            opacity: 1;
+            z-index: 1;
+            transition: opacity 1s ease, z-index 0s 0s;
+        }
+
+        .intro-text {
+            position: absolute;
+            bottom: 1%; /* Posição mais próxima da parte inferior da imagem */
+            left: 0;
+            width: 100%; /* Ocupa toda a largura da imagem */
+            background-color: rgba(0, 0, 0, 0.6); /* Fundo semi-transparente para contraste */
+            color: #fff;
+            text-align: center;
+            padding: 2rem; /* Maior espaço interno para texto */
+            z-index: 2; /* Fica acima das imagens */
+            font-size: 1.2rem; /* Ajuste do tamanho da fonte */
+}
+
+
+        .intro-text h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .intro-text p {
+            font-size: 1rem;
+        }
+
+        footer {
+            background-color: #880e4f;
+            color: #fff;
+            text-align: center;
+            padding: 0.5rem;
+            margin-top: auto;
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            margin: 0 10px;
+            position: relative;
+        }
+
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.1);
+        }
+
+        .tooltip {
+            visibility: hidden;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 2px 6px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 12px;
+            opacity: 0;
+            white-space: nowrap;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .social-icons a:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Saint Formaturas e Eventos</div>
+        <div class="hamburger-menu" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+        <ul id="nav-list">
+            <li><a href="home.html">HOME</a></li>
+            <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
+            <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
+            <li><a href="clientes-1.html">CLIENTES</a></li>
+            <li><a href="fotoseventos-1.html">FOTOS DE EVENTOS</a></li>
+            <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>Saint Formaturas e Eventos</h1>
+        <p><strong>Experiência em Superar Expectativas!</strong></p>
+    </header>
+
+    <main>
+        <section class="photo-gallery">
+            <img src="fotos de 5minutos/casamento1.png" alt="Casamento 1" class="visible">
+            <img src="fotos de 5minutos/casamento2.png" alt="Casamento 2">
+            <img src="fotos de 5minutos/casamento4.png" alt="Noiva">
+            <div class="intro-text">
+                <h2>BEM-VINDO À SAINT FORMATURAS E EVENTOS</h2>
+                <p>
+                    A Saint Formaturas e Eventos é uma empresa referência na organização de eventos exclusivos, 
+                    com uma especialização em formaturas e celebrações de grande porte. Nosso compromisso é proporcionar 
+                    uma experiência única, cuidando de cada detalhe com excelência. Contamos com uma equipe altamente qualificada 
+                    e uma rede de fornecedores de confiança, garantindo soluções inovadoras e personalizadas para tornar o seu evento inesquecível.
+                </p>
             </div>
-        </footer>
+        </section>
+    </main>
 
-        <!-- Script para manipulação do menu -->
-        <script>
-            // Função para alternar a visibilidade do menu
-            function toggleMenu() {
-                const menu = document.querySelector('#nav-list');
-                menu.classList.toggle('active');
-            }
-        </script>
+    <footer>
+        <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/saintformaturas/" target="_blank">
+                <img src="logos das redes social/instagram.png" alt="Instagram">
+                <span class="tooltip">Instagram</span>
+            </a>
+            <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
+                <img src="logos das redes social/logo.png" alt="WhatsApp">
+                <span class="tooltip">WhatsApp</span>
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
+                <img src="logos das redes social/facebook.png" alt="Facebook">
+                <span class="tooltip">Facebook</span>
+            </a>
+        </div>
+    </footer>
 
-        <!-- Scripts adicionais -->
-        <script>
-            const images = [
-                'fotos de 5minutos/noiva.jpeg',
-                'fotos de 5minutos/casamento6.jpeg'
-            ];
+    <script>
+        let currentIndex = 0;
+        const images = document.querySelectorAll('.photo-gallery img');
 
-            let currentIndex = 0;
+        function changeBackground() {
+            images.forEach((img, index) => {
+                if (index === currentIndex) {
+                    img.classList.add('visible');
+                } else {
+                    img.classList.remove('visible');
+                }
+            });
 
-            function changeBackgroundImage() {
-                const imageUrl = images[currentIndex];
-                const img = new Image();
+            currentIndex = (currentIndex + 1) % images.length;
+        }
 
-                img.onload = function() {
-                    document.body.style.backgroundImage = `url('${imageUrl}')`;
-                };
+        setInterval(changeBackground, 5000);
 
-                img.onerror = function() {
-                    console.error(`Erro ao carregar a imagem: ${imageUrl}`);
-                };
+        function toggleMenu() {
+            const navList = document.getElementById('nav-list');
+            navList.classList.toggle('active');
+        }
+    </script>
 
-                img.src = imageUrl;
-                currentIndex = (currentIndex + 1) % images.length;
-            }
-
-            setInterval(changeBackgroundImage, 300000);
-            changeBackgroundImage();
-
-            let photoIndex = 0;
-
-            function showNextPhoto() {
-                const photos = document.querySelectorAll('.photo-gallery img');
-                photos.forEach(photo => photo.style.opacity = 0);
-                photos[photoIndex].style.opacity = 1;
-                photoIndex = (photoIndex + 1) % photos.length;
-            }
-
-            setInterval(showNextPhoto, 5000);
-            showNextPhoto();
-        </script>
-    </body>
-    </html>
+</body>
+</html>
