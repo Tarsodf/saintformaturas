@@ -35,25 +35,18 @@
             position: sticky;
             top: 0;
             z-index: 10;
-            flex-wrap: wrap;
         }
 
         nav .logo {
             color: #fff;
             font-size: 1.5rem;
             font-weight: bold;
-            margin-right: 20px;
         }
 
-        /* Menu */
         nav ul {
             list-style: none;
             display: flex;
             gap: 15px;
-        }
-
-        nav ul li {
-            display: inline-block;
         }
 
         nav ul li a {
@@ -68,52 +61,40 @@
             background-color: #c2185b;
         }
 
-        /* Ícone de Menu */
         .menu-icon {
             display: none;
-            color: white;
-            font-size: 30px;
+            font-size: 1.5rem;
+            color: #fff;
             cursor: pointer;
         }
 
-        /* Menu lateral (exibido em telas menores) */
-        @media screen and (max-width: 768px) {
+        /* Menu responsivo */
+        @media (max-width: 768px) {
             nav ul {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100%;
-                background-color: rgba(136, 14, 79, 0.9);
+                display: none;
                 flex-direction: column;
-                align-items: flex-start;
-                padding-top: 2rem;
-            }
-
-            nav ul li {
+                gap: 10px;
+                background-color: rgba(136, 14, 79, 0.9);
+                position: absolute;
+                top: 100%;
+                left: 0;
                 width: 100%;
-                text-align: left;
-                padding: 10px 20px;
+                padding: 10px 0;
+                z-index: 9;
             }
 
-            nav .logo {
-                font-size: 1.8rem;
-                margin-left: 20px;
+            nav ul.active {
+                display: flex;
             }
 
-            /* Ícone de Menu visível em telas pequenas */
             .menu-icon {
                 display: block;
             }
-        }
 
-        @media screen and (max-width: 480px) {
-            nav ul {
-                width: 100%;
-            }
-
-            nav .logo {
-                font-size: 1.4rem;
+            nav ul li a {
+                display: block;
+                text-align: left;
+                padding: 1rem;
             }
         }
 
@@ -129,9 +110,21 @@
             font-size: 3rem;
         }
 
-        /* Formulário de Contato */
+        /* Imagem */
+        .image-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .image-container img {
+            max-width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Formulário */
         .container {
-            max-width: 1200px;
+            max-width: 900px;
             margin: 2rem auto;
             padding: 1rem;
             flex: 1;
@@ -139,19 +132,17 @@
 
         .form-container {
             background-color: #e6bdbd;
-            padding: 3rem;
-            border-radius: 15px;
+            padding: 2rem;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            max-width: 900px;
-            margin: auto;
             border: 2px solid #880e4f;
         }
 
         .form-container h2 {
-            font-size: 2rem;
+            font-size: 1.8rem;
             text-align: center;
-            margin-bottom: 2rem;
-            color: #fefefe;
+            color: #880e4f;
+            margin-bottom: 1.5rem;
         }
 
         form {
@@ -161,21 +152,22 @@
         }
 
         input, select, textarea {
+            width: 100%;
             padding: 1rem;
             font-size: 1rem;
             border: 1px solid #ccc;
             border-radius: 8px;
-            transition: border-color 0.3s ease;
-            max-width: 100%;
+            background: #fff;
         }
 
         input:focus, select:focus, textarea:focus {
-            border-color: #880e4f;
             outline: none;
+            border-color: #880e4f;
         }
 
         textarea {
             resize: vertical;
+            min-height: 100px;
         }
 
         button {
@@ -204,59 +196,14 @@
         }
 
         .social-icons {
-            position: relative;
             display: flex;
             justify-content: center;
-            align-items: center;
+            gap: 15px;
         }
 
         .social-icons img {
             width: 40px;
             height: 40px;
-            margin: 0 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-icons img:hover {
-            transform: scale(1.1);
-        }
-
-        /* Tooltip Style */
-        .social-icons a {
-            position: relative;
-            display: inline-block;
-        }
-
-        .social-icons a .tooltip {
-            visibility: hidden;
-            opacity: 0;
-            position: absolute;
-            top: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 5px;
-            padding: 5px 10px;
-            font-size: 14px;
-            transition: opacity 0.3s ease;
-        }
-
-        .social-icons a:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        /* Imagem */
-        .image-container {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        .image-container img {
-            max-width: 30%;
-            border-radius: 15px;
         }
     </style>
 </head>
@@ -265,6 +212,9 @@
 <!-- Navegação -->
 <nav>
     <div class="logo">Saint Formaturas e Eventos</div>
+    <div class="menu-icon" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+    </div>
     <ul id="menu">
         <li><a href="home.html">HOME</a></li>
         <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
@@ -273,9 +223,6 @@
         <li><a href="fotoseventos-1.html">FOTOS DE EVENTOS</a></li>
         <li><a href="formulario1.html">ENTRE EM CONTATO</a></li>
     </ul>
-    <div class="menu-icon" onclick="toggleMenu()">
-        <i class="fas fa-bars"></i>
-    </div>
 </nav>
 
 <!-- Cabeçalho -->
@@ -285,15 +232,13 @@
 
 <!-- Imagem -->
 <div class="image-container">
-    <a href="Formulario/contato.jpg" target="_blank">
-        <img src="Formulario/contato.jpg" alt="contato">
-    </a>
+    <img src="Formulario/contato.jpg" alt="Contato">
 </div>
 
-<!-- Formulário de Contato -->
+<!-- Formulário -->
 <div class="container">
     <div class="form-container">
-        <h2>Entre em Contato Conosco pelo Formulário: </h2>
+        <h2>Entre em Contato Conosco pelo Formulário:</h2>
         <form id="contactForm" action="https://formspree.io/f/xwkgppze" method="POST" onsubmit="clearForm();">
             <input type="text" name="nome" placeholder="Nome:" required>
             <input type="text" name="celular" placeholder="Celular:" required>
@@ -319,38 +264,30 @@
     <div class="social-icons">
         <a href="https://www.instagram.com/saintformaturas/" target="_blank">
             <img src="logos das redes social/instagram.png" alt="Instagram">
-            <span class="tooltip">Instagram</span>
         </a>
         <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
             <img src="logos das redes social/logo.png" alt="WhatsApp">
-            <span class="tooltip">WhatsApp</span>
         </a>
         <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
             <img src="logos das redes social/facebook.png" alt="Facebook">
-            <span class="tooltip">Facebook</span>
         </a>
     </div>
 </footer>
 
-<!-- Script para manipulação do menu -->
 <script>
     function toggleMenu() {
-        const menu = document.querySelector('nav ul');
-        menu.style.left = (menu.style.left === '0px') ? '-100%' : '0';
+        const menu = document.getElementById('menu');
+        menu.classList.toggle('active');
     }
 
     function clearForm() {
-        setTimeout(function() {
+        setTimeout(() => {
             document.getElementById('contactForm').reset();
             document.getElementById('successMessage').style.display = 'block';
-            setTimeout(function() {
+            setTimeout(() => {
                 document.getElementById('successMessage').style.display = 'none';
             }, 5000);
         }, 1000);
-    }
-
-    window.onbeforeunload = function() {
-        document.getElementById('contactForm').reset();
     }
 </script>
 

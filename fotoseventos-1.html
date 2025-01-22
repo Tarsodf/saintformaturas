@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/blueimp-gallery/2.33.0/css/blueimp-gallery.min.css">
     
     <style>
+        /* Reset básico */
         * {
             margin: 0;
             padding: 0;
@@ -23,6 +23,7 @@
             line-height: 1.6;
         }
 
+        /* Estilo do cabeçalho e menu */
         nav {
             background-color: rgba(136, 14, 79, 0.9);
             padding: 1rem 2rem;
@@ -44,64 +45,6 @@
             list-style: none;
             display: flex;
             gap: 15px;
-            justify-content: center;
-        }
-
-        .menu-toggle {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            display: flex;
-            flex-direction: column;
-            cursor: pointer;
-            gap: 5px;
-            color: #fff;
-            display: none;
-        }
-
-        .menu-toggle .bar {
-            width: 30px;
-            height: 4px;
-            background-color: #fff;
-            border-radius: 5px;
-        }
-
-        /* Responsividade para telas pequenas */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none;
-            }
-
-            nav ul.active {
-                display: flex;
-                flex-direction: column;
-                align-items: flex-start;
-                gap: 10px;
-                background-color: rgba(136, 14, 79, 0.9);
-                position: absolute;
-                top: 60px;
-                left: 0;
-                right: 0;
-                padding: 1rem 0;
-                z-index: 9;
-            }
-
-            nav {
-                flex-direction: column;
-                padding: 1rem;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            nav ul li a {
-                font-size: 1.5rem;
-                padding: 1rem;
-                text-align: left;
-                width: 100%;
-            }
         }
 
         nav ul li a {
@@ -114,6 +57,45 @@
 
         nav ul li a:hover {
             background-color: #c2185b;
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 1.5rem;
+            color: white;
+            cursor: pointer;
+        }
+
+        /* Responsividade para telas menores */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                background-color: rgba(136, 14, 79, 0.9);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                width: 100%;
+                padding: 1rem;
+                z-index: 9;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-toggle {
+                display: block;
+            }
+
+            nav ul li a {
+                font-size: 1.5rem;
+                padding: 1rem;
+                text-align: left;
+                width: 100%;
+            }
         }
 
         .header {
@@ -150,7 +132,6 @@
             margin-bottom: 50px;
             flex: 1 1 48%;
             max-width: 48%;
-            position: relative;
         }
 
         .gallery img {
@@ -159,42 +140,12 @@
             object-fit: cover;
             border-radius: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-            margin-bottom: 0px;
         }
 
         .gallery h2 {
             font-size: 1.5rem;
             color: #880e4f;
             margin-bottom: 10px;
-        }
-
-        .gallery-item {
-            display: none;
-        }
-
-        .gallery-item.active {
-            display: block;
-        }
-
-        .gallery .prev, .gallery .next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 2rem;
-            color: #880e4f;
-            background-color: rgba(255, 255, 255, 0.7);
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-            z-index: 10;
-        }
-
-        .gallery .prev {
-            left: 10px;
-        }
-
-        .gallery .next {
-            right: 10px;
         }
 
         footer {
@@ -207,128 +158,22 @@
         }
 
         .social-icons a {
-            margin: 0 0px;
+            margin: 0 10px;
             display: inline-block;
-            position: relative;
         }
 
         .social-icons img {
             width: 40px;
             height: 40px;
-            margin: 0 10px;
-            transition: transform 0.3s ease;
-        }
-
-        .social-icons a .tooltip {
-            visibility: hidden;
-            opacity: 0;
-            position: absolute;
-            top: -30px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            border-radius: 5px;
-            padding: 5px 10px;
-            font-size: 14px;
-            transition: opacity 0.3s ease, visibility 0.3s ease;
-        }
-
-        .social-icons a:hover .tooltip {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        @media (max-width: 768px) {
-            .galleries {
-                flex-direction: column;
-                gap: 15px;
-            }
-
-            .gallery {
-                flex: 1 1 100%;
-                max-width: 100%;
-            }
-
-            .gallery h2 {
-                font-size: 1.2rem;
-            }
-
-            .gallery img {
-                width: 100%;
-                height: auto;
-            }
-
-            nav ul {
-                list-style: none;
-                display: flex;
-                gap: 15px;
-                justify-content: center;
-            }
-
-            nav ul li {
-                margin-bottom: 10px;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .nav-links {
-                display: none;
-                width: 100%;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header h1 {
-                font-size: 1.8rem;
-            }
-
-            .gallery h2 {
-                font-size: 1rem;
-            }
-
-            footer {
-                padding: 1rem;
-            }
-
-            .social-icons img {
-                width: 50px;
-                height: 50px;
-                transition: transform 0.3s ease;
-            }
-
-            .social-icons img:hover {
-                transform: scale(1.1);
-            }
-        }
-
-        .contact-link {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background-color: #880e4f;
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 1.2rem;
-            border-radius: 5px;
-            z-index: 1000;
-        }
-
-        .contact-link:hover {
-            background-color: #c2185b;
         }
     </style>
 </head>
 <body>
-
+    <!-- Menu de navegação -->
     <nav>
         <div class="logo">Saint Formaturas e Eventos</div>
-        <div id="burguer" class="fas fa-bars menu-toggle" onclick="toggleMenu()"></div>
-        <ul id="nav-list">
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <ul id="menu">
             <li><a href="home.html">HOME</a></li>
             <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
             <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
@@ -338,182 +183,56 @@
         </ul>
     </nav>
 
+    <!-- Cabeçalho -->
     <header class="header">
         <h1>Fotos de Eventos</h1>
     </header>
 
+    <!-- Conteúdo principal -->
     <div class="container">
         <h1>Galerias de Eventos</h1>
         <div class="galleries">
-            <!-- Galeria Polícia Militar -->
             <div class="gallery">
                 <h2>Polícia Militar-Go:</h2>
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-                <div class="gallery-item active">
-                    <img src="Policia/policia15.jpeg" alt="Polícia Militar-Go 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="Policia/policia2.jpeg" alt="Polícia Militar-Go 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="Policia/policia3.jpeg" alt="Polícia Militar-Go 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="Policia/policia4.jpeg" alt="Polícia Militar-Go 4">
-                </div>
+                <img src="Policia/policia15.jpeg" alt="Evento Polícia Militar">
             </div>
-
-            <!-- Galeria Formandos Acadêmicos -->
             <div class="gallery">
                 <h2>Formandos Acadêmicos:</h2>
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-                <div class="gallery-item active">
-                    <img src="Formando Academicos/formando1.jpeg" alt="Formandos Acadêmicos 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="Formando Academicos/formando10.jpeg" alt="Formandos Acadêmicos 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="Formando Academicos/formando2.jpeg" alt="Formandos Acadêmicos 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="Formando Academicos/formando4.jpeg" alt="Formandos Acadêmicos 4">
-                </div>
+                <img src="Formando Academicos/formando1.jpeg" alt="Formandos Acadêmicos">
             </div>
-
-            <!-- Galeria Casamentos -->
             <div class="gallery">
                 <h2>Casamentos:</h2>
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-                <div class="gallery-item active">
-                    <img src="casamentos/casamento1.jpeg" alt="Casamento 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="casamentos/casamento2.jpeg" alt="Casamento 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="casamentos/casamento3.jpeg" alt="Casamento 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="casamentos/casamento4.jpeg" alt="Casamento 4">
-                </div>
+                <img src="casamentos/casamento1.jpeg" alt="Casamento">
             </div>
-
-            <!-- Galeria Decoração -->
-            <div class="gallery decoracao">
+            <div class="gallery">
                 <h2>Decoração:</h2>
-                <button class="prev">&#10094;</button>
-                <button class="next">&#10095;</button>
-                <div class="gallery-item active">
-                    <img src="decoração/decoraçao.jpeg" alt="Decoração 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="decoração/decoraçao2.jpeg" alt="Decoração 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="decoração/decoraçao3.jpeg" alt="Decoração 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="decoração/decoraçao4.jpeg" alt="Decoração 4">
-                </div>
-                <div class="gallery-item">
-                    <img src="decoração/decoraçao5.jpeg" alt="Decoração 5">
-                </div>
-                <div class="gallery-item">
-                    <img src="decoração/decoraçao6.jpeg" alt="Decoração 6">
-                </div>
-                <div class="gallery-item">
-                    <img src="decoração/decoraçao7.jpeg" alt="Decoração 7">
-                </div>
-                <div class="gallery-item">
-                    <img src="decoração/decoraçao8.jpeg" alt="Decoração 8">
-                </div>
+                <img src="decoração/decoraçao.jpeg" alt="Decoração">
             </div>
         </div>
     </div>
 
-
-
-            <!-- Galeria Videos -->
-            <div class="gallery">
-                <h2>Videos:</h2>
-                <div class="gallery-item active">
-                    <img src="fotos de 5minutos/" alt="Video 1">
-                </div>
-                <div class="gallery-item">
-                    <img src="" alt="Video 2">
-                </div>
-                <div class="gallery-item">
-                    <img src="" alt="Video 3">
-                </div>
-                <div class="gallery-item">
-                    <img src="" alt="Video 4">
-                </div>
-            </div>
-
-
-
+    <!-- Rodapé -->
     <footer>
         <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
         <div class="social-icons">
             <a href="https://www.instagram.com/saintformaturas/" target="_blank">
                 <img src="logos das redes social/instagram.png" alt="Instagram">
-                <span class="tooltip">Instagram</span>
             </a>
             <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
                 <img src="logos das redes social/logo.png" alt="WhatsApp">
-                <span class="tooltip">WhatsApp</span>
             </a>
             <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
                 <img src="logos das redes social/facebook.png" alt="Facebook">
-                <span class="tooltip">Facebook</span>
             </a>
         </div>
     </footer>
 
+    <!-- Script -->
     <script>
         function toggleMenu() {
-            let navList = document.getElementById('nav-list');
-            navList.classList.toggle('active');
+            const menu = document.getElementById('menu');
+            menu.classList.toggle('active');
         }
-
-        // Função para alterar a imagem visível
-        let currentIndex = 0;
-        let autoChange = true;
-        let galleries = document.querySelectorAll('.gallery');
-        galleries.forEach(gallery => {
-            let items = gallery.querySelectorAll('.gallery-item');
-            let currentIndex = 0;
-
-            // Função para alterar a imagem visível
-            function changeImage() {
-                items.forEach(item => item.classList.remove('active'));
-                items[currentIndex].classList.add('active');
-            }
-
-            // Navegação anterior
-            gallery.querySelector('.prev').addEventListener('click', function () {
-                currentIndex = (currentIndex - 1 + items.length) % items.length;
-                changeImage();
-            });
-
-            // Navegação próxima
-            gallery.querySelector('.next').addEventListener('click', function () {
-                currentIndex = (currentIndex + 1) % items.length;
-                changeImage();
-            });
-
-            // Configuração de navegação automática
-            if (autoChange) {
-                setInterval(function () {
-                    currentIndex = (currentIndex + 1) % items.length;
-                    changeImage();
-                }, 3000);
-            }
-        });
     </script>
 </body>
 </html>
