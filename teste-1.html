@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário - Saint Formaturas e Eventos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="capa/capa3.png" type="image/x-icon">
+    <style>
+        /* Reset básico */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f8c7c7;
+            color: #333;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        /* Navegação */
+        nav {
+            background-color: rgba(136, 14, 79, 0.9);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+
+        nav .logo {
+            color: #fff;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
+
+        nav ul li a:hover {
+            background-color: #c2185b;
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 1.5rem;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        /* Menu responsivo */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                background-color: rgba(136, 14, 79, 0.9);
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                padding: 10px 0;
+                z-index: 9;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .menu-icon {
+                display: block;
+            }
+
+            nav ul li a {
+                display: block;
+                text-align: left;
+                padding: 1rem;
+            }
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #880e4f;
+            color: #fff;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        header h1 {
+            font-size: 3rem;
+        }
+
+        /* Imagem */
+        .image-container {
+            text-align: center;
+            margin: 2rem 0;
+        }
+
+        .image-container img {
+            max-width: 50%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Formulário */
+        .container {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 1rem;
+            flex: 1;
+        }
+
+        .form-container {
+            background-color: #e6bdbd;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid #880e4f;
+        }
+
+        .form-container h2 {
+            font-size: 1.8rem;
+            text-align: center;
+            color: #880e4f;
+            margin-bottom: 1.5rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #880e4f;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #c2185b;
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="logo">Saint Formaturas e Eventos</div>
+        <ul>
+            <li><a href="#">Início</a></li>
+            <li><a href="#">Sobre</a></li>
+            <li><a href="#">Serviços</a></li>
+            <li><a href="#">Contato</a></li>
+        </ul>
+        <div class="menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+    </nav>
+
+    <header>
+        <h1>Formulário de Contato</h1>
+    </header>
+
+    <div class="image-container">
+        <img src="capa/capa3.png" alt="Imagem de capa">
+    </div>
+
+    <div class="container">
+        <div class="form-container">
+            <h2>Entre em Contato</h2>
+            <form action="enviar.php" method="post">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="telefone">Telefone:</label>
+                <input type="tel" id="telefone" name="telefone" required>
+
+                <label for="data">Data:</label>
+                <input type="date" id="data" name="data" required>
+
+                <label for="mensagem">Mensagem:</label>
+                <textarea id="mensagem" name="mensagem" rows="4" required></textarea>
+
+                <input type="submit" value="Enviar">
+            </form>
+        </div>
+    </div>
+</body>
+</html>

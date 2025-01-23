@@ -199,12 +199,44 @@
             display: flex;
             justify-content: center;
             gap: 15px;
+            position: relative;
+        }
+
+        .social-icons a {
+            display: inline-block;
+            position: relative;
         }
 
         .social-icons img {
             width: 40px;
             height: 40px;
+            transition: opacity 0.3s ease;
         }
+
+        /* Nome da rede social */
+        .social-icons a .tooltip {
+            visibility: hidden;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 5px;
+            padding: 5px 10px;
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 14px;
+            opacity: 0;
+            white-space: nowrap;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .social-icons a:hover .tooltip {
+            visibility: visible;
+            opacity: 1;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
     </style>
 </head>
 <body>
@@ -265,12 +297,15 @@
     <div class="social-icons">
         <a href="https://www.instagram.com/saintformaturas/" target="_blank">
             <img src="logos das redes social/instagram.png" alt="Instagram">
+            <span class="tooltip">Instagram</span>
         </a>
         <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
             <img src="logos das redes social/logo.png" alt="WhatsApp">
+            <span class="tooltip">WhatsApp</span>
         </a>
         <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
             <img src="logos das redes social/facebook.png" alt="Facebook">
+            <span class="tooltip">Facebook</span>
         </a>
     </div>
 </footer>
