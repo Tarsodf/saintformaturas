@@ -157,8 +157,7 @@
             padding: 2rem; /* Maior espaço interno para texto */
             z-index: 2; /* Fica acima das imagens */
             font-size: 1.2rem; /* Ajuste do tamanho da fonte */
-}
-
+        }
 
         .intro-text h2 {
             font-size: 2rem;
@@ -172,46 +171,64 @@
         footer {
             background-color: #880e4f;
             color: #fff;
-            text-align: center;
-            padding: 0.5rem;
+            padding: 1rem;
             margin-top: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .footer-contact {
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact div {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-contact i {
+            margin-right: 8px;
         }
 
         .social-icons {
             display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 1rem;
+            justify-content: center; /* Centraliza os ícones */
+            gap: 15px;
+            width: 100%; /* Garante que ocupe toda a largura disponível */
         }
 
         .social-icons a {
             display: inline-block;
-            margin: 0 10px;
             position: relative;
+            transition: transform 0.3s ease;
         }
 
         .social-icons img {
             width: 40px;
             height: 40px;
-            transition: transform 0.3s ease;
         }
 
-        .social-icons img:hover {
+        .social-icons a:hover img {
             transform: scale(1.1);
         }
 
-        .tooltip {
+        /* Nome da rede social */
+        .social-icons a span.tooltip {
             visibility: hidden;
             background-color: #333;
             color: #fff;
             text-align: center;
             border-radius: 5px;
-            padding: 2px 6px;
+            padding: 5px 10px;
             position: absolute;
             bottom: 50px;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 12px;
+            font-size: 14px;
             opacity: 0;
             white-space: nowrap;
             transition: opacity 0.3s ease, visibility 0.3s ease;
@@ -220,7 +237,9 @@
         .social-icons a:hover .tooltip {
             visibility: visible;
             opacity: 1;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
         }
+
     </style>
 </head>
 <body>
@@ -248,7 +267,7 @@
     <main>
         <section class="photo-gallery">
             <img src="fotos de 5minutos/casamento1.png" alt="Casamento 1" class="visible">
-            <img src="fotos de 5minutos/casamento2.png" alt="Casamento 2">
+            <img src="fotos de 5minutos/casamento7.jpeg" alt="Casamento 2">
             <img src="fotos de 5minutos/casamento4.png" alt="Noiva">
             <div class="intro-text">
                 <h2>BEM-VINDO À SAINT FORMATURAS E EVENTOS</h2>
@@ -263,7 +282,16 @@
     </main>
 
     <footer>
-        <p>&copy; 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
+        <div class="footer-contact">
+            <div>
+                <i class="fas fa-phone"></i>
+                <span>Tel: (12) 98854-3424</span>
+            </div>
+            <div>
+                <i class="fas fa-envelope"></i>
+                <span>Email: sainteventos2525@gmail.com</span>
+            </div>
+        </div>
         <div class="social-icons">
             <a href="https://www.instagram.com/saintformaturas/" target="_blank">
                 <img src="logos das redes social/instagram.png" alt="Instagram">
