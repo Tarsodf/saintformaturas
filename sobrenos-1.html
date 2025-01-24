@@ -26,111 +26,109 @@
         }
 
         /* Configurações do menu */
-nav {
-    background-color: rgba(136, 14, 79, 0.9);
-    padding: 1rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-}
+        nav {
+            background-color: rgba(136, 14, 79, 0.9);
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
 
-nav .logo {
-    color: #fff;
-    font-size: 1.8rem;
-    font-weight: bold;
-}
+        nav .logo {
+            color: #fff;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
 
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
-}
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
 
-nav ul li {
-    display: inline-block;
-}
+        nav ul li {
+            display: inline-block;
+        }
 
-nav ul li a {
-    color: #fff;
-    font-size: 1.2rem;
-    text-decoration: none;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-}
-
-nav ul li a:hover {
-    background-color: #c2185b;
-}
-
-/* Botão do menu hamburger */
-nav .hamburger-menu {
-    display: none;
-    color: #fff;
-    font-size: 1.5rem;
-    cursor: pointer;
-}
-
-/* Configuração para mobile */
-@media (max-width: 768px) {
-    nav .hamburger-menu {
-        display: block;
-    }
-
-    nav .hamburger-menu i {
-        color: #fff; /* Cor branca */
-    }
-
-    nav ul {
-        position: absolute;
-        top: 100%;
-        left: 0;
-        flex-direction: column;
-        background-color: rgba(136, 14, 79, 0.9);
-        width: 100%;
-        display: none; /* Escondido por padrão */
-    }
-
-    nav ul.active {
-        display: flex; /* Mostra o menu ao ativar */
-    }
-
-    nav ul li {
-        text-align: left;
-        width: 100%;
-    }
-
-    nav ul li a {
-        font-size: 1.5rem;
-        padding: 1rem;
-        text-align: left;
-        width: 100%;
-    }
-}
-
+        nav ul li a {
+            color: #fff;
+            font-size: 1.2rem;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+        }
 
         nav ul li a:hover {
             background-color: #c2185b;
         }
 
+        /* Botão do menu hamburger */
+        nav .hamburger-menu {
+            display: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Configuração para mobile */
+        @media (max-width: 768px) {
+            nav .hamburger-menu {
+                display: block;
+            }
+
+            nav .hamburger-menu i {
+                color: #fff; /* Cor branca */
+            }
+
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                flex-direction: column;
+                background-color: rgba(136, 14, 79, 0.9);
+                width: 100%;
+                display: none; /* Escondido por padrão */
+            }
+
+            nav ul.active {
+                display: flex; /* Mostra o menu ao ativar */
+            }
+
+            nav ul li {
+                text-align: left;
+                width: 100%;
+            }
+
+            nav ul li a {
+                font-size: 1.5rem;
+                padding: 1rem;
+                text-align: left;
+                width: 100%;
+            }
+        }
+
         .menu-toggle {
-        position: absolute; /* Permite posicionamento em relação ao elemento pai */
-        right: 20px; /* Ajuste para mover o ícone horizontalmente */
-        top: 50%; /* Centraliza verticalmente no contêiner */
-        transform: translateY(-50%); /* Corrige o alinhamento vertical */
-        display: flex;
-        flex-direction: column;
-        cursor: pointer;
-        gap: 5px;
-        color: #fff;
-        display: none; /* Esconde o ícone por padrão */
-    }
-    .menu-toggle .bar {
-        width: 30px;
-        height: 4px;
-        background-color: #fff;
-        border-radius: 5px;
-}
+            position: absolute; /* Permite posicionamento em relação ao elemento pai */
+            right: 20px; /* Ajuste para mover o ícone horizontalmente */
+            top: 50%; /* Centraliza verticalmente no contêiner */
+            transform: translateY(-50%); /* Corrige o alinhamento vertical */
+            display: flex;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+            color: #fff;
+            display: none; /* Esconde o ícone por padrão */
+        }
+
+        .menu-toggle .bar {
+            height: 3px; /* Altura das barras */
+            width: 21px; /* Largura das barras */
+            background-color: #fff;
+            margin: 3px 0; /* Espaçamento entre as barras */
+            transition: 0.3s;
+        }
+
         /* Header e Conteúdo */
         .header {
             background-color: #880e4f;
@@ -202,6 +200,7 @@ nav .hamburger-menu {
             text-align: center;
             padding: 1rem 0;
         }
+
         .social-icons img {
             width: 40px;
             height: 40px;
@@ -292,8 +291,12 @@ nav .hamburger-menu {
 
 <nav>
     <div class="logo">Saint Formaturas e Eventos</div>
-    <div id="burguer" class="fas fa-bars menu-toggle" onclick="toggleMenu()"></div>
-        <ul id="nav-list">
+    <div id="burguer" class="menu-toggle" onclick="toggleMenu()">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+    <ul id="nav-list">
         <li><a href="home.html">HOME</a></li>
         <li><a href="areadeatuação-1.html">ÁREA DE ATUAÇÃO</a></li>
         <li><a href="sobrenos-1.html">SOBRE NÓS</a></li>
@@ -357,13 +360,14 @@ nav .hamburger-menu {
     </div>
 </footer>
 
-    <!-- Script para manipulação do menu -->
-    <script>
+<!-- Script para manipulação do menu -->
+<script>
     function toggleMenu() {
-    const navList = document.getElementById('nav-list');
-    navList.classList.toggle('active'); // Adiciona ou remove a classe "active"
-}
-
+        const navList = document.getElementById('nav-list');
+        const burger = document.getElementById('burguer');
+        navList.classList.toggle('active'); // Abre ou fecha o menu
+        burger.classList.toggle('open'); // Adiciona a animação no ícone
+    }
 </script>
 
 </body>

@@ -66,7 +66,14 @@
             font-size: 1.5rem;
             color: #fff;
             cursor: pointer;
+            height: 2px; /* Altura menor */
+            width: 25px; /* Largura menor */
+            margin: 3px 0; /* Espaçamento reduzido */
+            transition: 0.3s;
         }
+
+
+
 
         /* Menu responsivo */
         @media (max-width: 768px) {
@@ -213,6 +220,14 @@
             transition: opacity 0.3s ease;
         }
 
+        /* Apenas a modificação solicitada */
+        .menu-toggle .bar {
+            height: 3px; /* Altura menor */
+            width: 25px; /* Largura menor */
+            background-color: #fff;
+            margin: 3px 0; /* Espaçamento reduzido */
+            transition: 0.3s;
+}
         /* Nome da rede social */
         .social-icons a .tooltip {
             visibility: hidden;
