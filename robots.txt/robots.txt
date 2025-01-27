@@ -1,0 +1,5 @@
+User-agent: *
+Disallow: /areadeatuação-1
+Disallow: /fotoseventos-1
+Disallow: /clientes-1
+Disallow: /formulario1
