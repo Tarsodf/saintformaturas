@@ -16,13 +16,11 @@
             box-sizing: border-box;
         }
 
-        /* Corpo da página */
         body {
             font-family: 'Roboto', sans-serif;
             font-size: 18px;
             color: #333;
             line-height: 1.8;
-            margin: 0;
             display: flex;
             flex-direction: column;
             min-height: 100vh;
@@ -39,7 +37,7 @@
             position: relative;
         }
 
-        nav .logo {
+        .logo {
             color: #fff;
             font-size: 1.8rem;
             font-weight: bold;
@@ -49,10 +47,6 @@
             list-style: none;
             display: flex;
             gap: 20px;
-        }
-
-        nav ul li {
-            display: inline-block;
         }
 
         nav ul li a {
@@ -67,43 +61,14 @@
             background-color: #c2185b;
         }
 
-        nav .hamburger-menu {
+        .hamburger-menu {
             display: none;
             color: #fff;
             font-size: 1.5rem;
             cursor: pointer;
         }
 
-        @media (max-width: 768px) {
-            nav ul {
-                position: absolute;
-                top: 100%;
-                left: 0;
-                flex-direction: column;
-                background-color: rgba(136, 14, 79, 0.9);
-                width: 100%;
-                display: none;
-            }
-
-            /* Ajustes para telas pequenas (como celulares) */
-        @media (max-width: 768px) {
-            .area-content img {
-                 max-width: 100%; /* A imagem ocupará 90% da largura disponível */
-                height: auto; /* Altura ajustada automaticamente */
-                border-radius: 10px; /* Arredondamento das bordas */
-    }
-}
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav .hamburger-menu {
-                display: block;
-            }
-        }
-
-        /* Cabeçalho */
+        /* Conteúdo principal */
         header {
             background-color: #880e4f;
             text-align: center;
@@ -114,21 +79,10 @@
         header h1 {
             font-size: 3rem;
             margin-bottom: 0.5rem;
-            
         }
 
-        .menu-toggle .bar {
-        height: 3px; /* Altura menor */
-        width: 25px; /* Largura menor */
-        background-color: #fff;
-        margin: 3px 0; /* Espaçamento reduzido */
-        transition: 0.3s;
-}
-
-
-        /* Conteúdo principal */
         .container {
-            flex: 10px;
+            flex: 1;
             padding: 2rem;
             display: flex;
             justify-content: center;
@@ -136,53 +90,50 @@
             text-align: center;
         }
 
-        .area-text p {
-            font-size: 1.2rem; /* Aumenta o tamanho do texto do parágrafo */
-            line-height: 1.8; /* Melhora o espaçamento entre as linhas */
-            margin-bottom: 1rem; /* Adiciona espaço abaixo do parágrafo */
-            color: #555; /* Ajusta a cor para maior legibilidade */
+        .area-content {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            max-width: 1200px;
+            width: 100%;
         }
 
-        .area-text ul li {
-         font-size: 1.2rem; /* Aumenta o tamanho do texto da lista */
-         line-height: 1.8; /* Melhora o espaçamento entre os itens da lista */
-         margin-bottom: 0.8rem; /* Adiciona espaço entre os itens da lista */
-        color: #555; /* Ajusta a cor para combinar com o parágrafo */
-    }
-
-
         .area-content img {
-            max-width: 100%; /* Define um limite máximo de largura */
-            height: auto; /* Mantém a proporção da imagem */
-            border-radius: 100px; /* Bordas arredondadas */
-            flex: 1; /* Flexível dentro do contêiner */
-            object-fit: cover; /* Ajusta o conteúdo para preencher a área */
-}
-
-        .area-content img {
-            max-width: 30%; /* Diminui o tamanho da imagem */
+            max-width: 40%;
             height: auto;
             border-radius: 100px;
-            flex: 1;
             object-fit: cover;
         }
 
         .area-text {
             text-align: left;
-            flex: 2;
+            flex: 1;
         }
 
         .area-text h2 {
-            text-align: center; /* Centraliza o texto horizontalmente */
-             margin-bottom: 1rem; /* Espaço abaixo do título */
-            font-size: 2.5rem; /* Ajuste o tamanho do título, se necessário */
-            font-weight: bold; /* Dá ênfase ao título */
-            color: #333; /* Cor do texto */
-}
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #333;
+            text-align: center;
+        }
 
+        .area-text p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            color: #555;
+        }
+
+        .area-text ul {
+            list-style-position: inside;
+            padding-left: 0;
+        }
 
         .area-text ul li {
+            font-size: 1.2rem;
+            line-height: 1.8;
             margin-bottom: 1rem;
+            color: #555;
         }
 
         /* Rodapé */
@@ -190,38 +141,36 @@
             background-color: #880e4f;
             color: #fff;
             text-align: center;
-            padding: 0.5rem; /* Reduzido */
+            padding: 1rem;
             margin-top: auto;
         }
 
-        footer .social-icons {
-            margin-top: 10px;
+        .social-icons {
+            margin-top: 1rem;
             display: flex;
             justify-content: center;
             gap: 20px;
         }
 
-        footer .social-icons a {
+        .social-icons a {
             position: relative;
-            text-align: center;
-        }
-
-        footer .social-icons img {
-            width: 40px;
-            height: 40px;
             transition: transform 0.3s ease;
         }
 
-        footer .social-icons img:hover {
+        .social-icons img {
+            width: 40px;
+            height: 40px;
+        }
+
+        .social-icons a:hover img {
             transform: scale(1.1);
         }
 
-        /* Tooltip */
-        footer .social-icons a span {
+        .tooltip {
             visibility: hidden;
             opacity: 0;
             position: absolute;
-            bottom: 50px;
+            bottom: 100%;
             left: 50%;
             transform: translateX(-50%);
             background-color: rgba(0, 0, 0, 0.8);
@@ -233,15 +182,44 @@
             transition: opacity 0.3s ease;
         }
 
-        footer .social-icons a:hover span {
+        .social-icons a:hover .tooltip {
             visibility: visible;
             opacity: 1;
         }
 
+        /* Media Queries */
+        @media (max-width: 768px) {
+            nav ul {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                flex-direction: column;
+                background-color: rgba(136, 14, 79, 0.9);
+                width: 100%;
+                display: none;
+                padding: 1rem;
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hamburger-menu {
+                display: block;
+            }
+
+            .area-content {
+                flex-direction: column;
+            }
+
+            .area-content img {
+                max-width: 90%;
+                border-radius: 20px;
+            }
+        }
     </style>
 </head>
 <body>
-
     <!-- Navegação -->
     <nav>
         <div class="logo">Saint Formaturas e Eventos</div>
@@ -285,29 +263,26 @@
     <footer>
         <p>© 2025 Saint Formaturas e Eventos. Todos os direitos reservados.</p>
         <div class="social-icons">
-            <a href="https://www.instagram.com/saintformaturas/" target="_blank">
+            <a href="https://www.instagram.com/saintformaturas/" target="_blank" aria-label="Instagram">
                 <img src="logos das redes social/instagram.png" alt="Instagram">
                 <span class="tooltip">Instagram</span>
             </a>
-            <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank">
+            <a href="https://wa.me/message/ZUNISQ4NWWAVL1" target="_blank" aria-label="WhatsApp">
                 <img src="logos das redes social/logo.png" alt="WhatsApp">
                 <span class="tooltip">WhatsApp</span>
             </a>
-            <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank">
+            <a href="https://www.facebook.com/profile.php?id=61569796268073" target="_blank" aria-label="Facebook">
                 <img src="logos das redes social/facebook.png" alt="Facebook">
                 <span class="tooltip">Facebook</span>
             </a>
         </div>
     </footer>
 
-    <!-- Script para manipulação do menu -->
     <script>
-        // Função para alternar a visibilidade do menu
         function toggleMenu() {
             const menu = document.querySelector('#nav-list');
             menu.classList.toggle('active');
         }
     </script>
-
 </body>
 </html>
